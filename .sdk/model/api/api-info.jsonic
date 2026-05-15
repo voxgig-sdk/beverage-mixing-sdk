@@ -1,0 +1,24 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "ABHISHEK SURESH"
+        url: "https://abhi-api.vercel.app"
+      }
+      description: "This API provides recommendations for mixing various beverages with specific ingredients. It can suggest drink combinations based on user input, enhancing the beverage experience."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://abhi-api.vercel.app"
+        }
+      ]
+      title: "Beverage Mixing API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

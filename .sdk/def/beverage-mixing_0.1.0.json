@@ -1,0 +1,263 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Beverage Mixing API",
+    "description": "This API provides recommendations for mixing various beverages with specific ingredients. It can suggest drink combinations based on user input, enhancing the beverage experience.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "ABHISHEK SURESH",
+      "url": "https://abhi-api.vercel.app"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://abhi-api.vercel.app",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/api/game/dare": {
+      "get": {
+        "summary": "Get a dare challenge",
+        "description": "Retrieves a random dare challenge for games and entertainment purposes",
+        "operationId": "getDare",
+        "tags": [
+          "Game"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with dare challenge",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DareResponse"
+                },
+                "example": {
+                  "code": 200,
+                  "status": true,
+                  "creator": "𝙰𝙱𝙷𝙸𝚂𝙷𝙴𝙺 𝚂𝚄𝚁𝙴𝚂𝙷🍀",
+                  "result": "Flirt with someone you have a crush on, your closest friend, an unknown person of the opposite gender, etc."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/beverage/mix": {
+      "get": {
+        "summary": "Get beverage mixing recommendations",
+        "description": "Provides recommendations for mixing various beverages with specific ingredients",
+        "operationId": "getBeverageMix",
+        "tags": [
+          "Beverage"
+        ],
+        "parameters": [
+          {
+            "name": "beverage",
+            "in": "query",
+            "description": "The base beverage to mix",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "coffee"
+            }
+          },
+          {
+            "name": "ingredient",
+            "in": "query",
+            "description": "Specific ingredient to include in the mix",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "milk"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with beverage mixing recommendation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BeverageResponse"
+                },
+                "example": {
+                  "code": 200,
+                  "status": true,
+                  "creator": "𝙰𝙱𝙷𝙸𝚂𝙷𝙴𝙺 𝚂𝚄𝚁𝙴𝚂𝙷🍀",
+                  "result": {
+                    "recommendation": "Try mixing coffee with milk and a touch of vanilla syrup for a smooth latte experience",
+                    "ingredients": [
+                      "coffee",
+                      "milk",
+                      "vanilla syrup"
+                    ],
+                    "difficulty": "easy"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "DareResponse": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "HTTP status code",
+            "example": 200
+          },
+          "status": {
+            "type": "boolean",
+            "description": "Indicates if the request was successful",
+            "example": true
+          },
+          "creator": {
+            "type": "string",
+            "description": "API creator name",
+            "example": "𝙰𝙱𝙷𝙸𝚂𝙷𝙴𝙺 𝚂𝚄𝚁𝙴𝚂𝙷🍀"
+          },
+          "result": {
+            "type": "string",
+            "description": "The dare challenge text",
+            "example": "Flirt with someone you have a crush on, your closest friend, an unknown person of the opposite gender, etc."
+          }
+        },
+        "required": [
+          "code",
+          "status",
+          "creator",
+          "result"
+        ]
+      },
+      "BeverageResponse": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "HTTP status code",
+            "example": 200
+          },
+          "status": {
+            "type": "boolean",
+            "description": "Indicates if the request was successful",
+            "example": true
+          },
+          "creator": {
+            "type": "string",
+            "description": "API creator name",
+            "example": "𝙰𝙱𝙷𝙸𝚂𝙷𝙴𝙺 𝚂𝚄𝚁𝙴𝚂𝙷🍀"
+          },
+          "result": {
+            "type": "object",
+            "description": "Beverage mixing recommendation details",
+            "properties": {
+              "recommendation": {
+                "type": "string",
+                "description": "Detailed mixing recommendation"
+              },
+              "ingredients": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "List of ingredients in the mix"
+              },
+              "difficulty": {
+                "type": "string",
+                "enum": [
+                  "easy",
+                  "medium",
+                  "hard"
+                ],
+                "description": "Difficulty level of preparing the mix"
+              }
+            }
+          }
+        },
+        "required": [
+          "code",
+          "status",
+          "creator",
+          "result"
+        ]
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "HTTP error status code",
+            "example": 500
+          },
+          "status": {
+            "type": "boolean",
+            "description": "Indicates if the request was successful",
+            "example": false
+          },
+          "creator": {
+            "type": "string",
+            "description": "API creator name",
+            "example": "𝙰𝙱𝙷𝙸𝚂𝙷𝙴𝙺 𝚂𝚄𝚁𝙴𝚂𝙷🍀"
+          },
+          "error": {
+            "type": "string",
+            "description": "Error message",
+            "example": "An error occurred while processing your request"
+          }
+        },
+        "required": [
+          "code",
+          "status",
+          "error"
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Game",
+      "description": "Game-related endpoints for dares and challenges"
+    },
+    {
+      "name": "Beverage",
+      "description": "Beverage mixing recommendations and suggestions"
+    }
+  ]
+}

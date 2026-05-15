@@ -1,0 +1,54 @@
+# Entity: dare
+
+main: kit: entity: dare: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "code"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "creator"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "result"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "status"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+  ]
+
+  name: "dare"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          method: "GET"
+          orig: "/api/game/dare"
+          parts: [
+            "api"
+            "game"
+            "dare"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

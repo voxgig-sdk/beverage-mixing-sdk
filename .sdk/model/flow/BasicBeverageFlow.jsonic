@@ -1,0 +1,28 @@
+# BasicBeverageFlow
+
+main: kit: flow: BasicBeverageFlow:
+{
+  entity: "beverage",
+  kind: "basic",
+  name: "BasicBeverageFlow",
+  step: [
+    {
+      input: {
+        ref: "beverage_ref01",
+        srcdatavar: "beverage_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-beverage_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicBeverageFlow"
+}
