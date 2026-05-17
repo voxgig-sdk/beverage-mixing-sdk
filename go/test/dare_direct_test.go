@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/beverage-mixing-sdk"
-	"github.com/voxgig-sdk/beverage-mixing-sdk/core"
+	sdk "github.com/voxgig-sdk/beverage-mixing-sdk/go"
+	"github.com/voxgig-sdk/beverage-mixing-sdk/go/core"
 )
 
 func TestDareDirect(t *testing.T) {

@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/beverage-mixing-sdk/core"
+	"github.com/voxgig-sdk/beverage-mixing-sdk/go/core"
 )
 
 type BaseFeature struct {

@@ -3,7 +3,7 @@ package sdktest
 import (
 	"testing"
 
-	sdk "github.com/voxgig-sdk/beverage-mixing-sdk"
+	sdk "github.com/voxgig-sdk/beverage-mixing-sdk/go"
 )
 
 func TestCustomUtility(t *testing.T) {

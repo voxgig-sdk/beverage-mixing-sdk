@@ -1,10 +1,10 @@
 package voxgigbeveragemixingsdk
 
 import (
-	"github.com/voxgig-sdk/beverage-mixing-sdk/core"
-	"github.com/voxgig-sdk/beverage-mixing-sdk/entity"
-	"github.com/voxgig-sdk/beverage-mixing-sdk/feature"
-	_ "github.com/voxgig-sdk/beverage-mixing-sdk/utility"
+	"github.com/voxgig-sdk/beverage-mixing-sdk/go/core"
+	"github.com/voxgig-sdk/beverage-mixing-sdk/go/entity"
+	"github.com/voxgig-sdk/beverage-mixing-sdk/go/feature"
+	_ "github.com/voxgig-sdk/beverage-mixing-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

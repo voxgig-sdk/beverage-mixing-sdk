@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/beverage-mixing-sdk"
-	"github.com/voxgig-sdk/beverage-mixing-sdk/core"
+	sdk "github.com/voxgig-sdk/beverage-mixing-sdk/go"
+	"github.com/voxgig-sdk/beverage-mixing-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/beverage-mixing-sdk/go/utility/struct"
 )
 
 func TestDareEntity(t *testing.T) {
