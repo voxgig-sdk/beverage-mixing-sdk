@@ -74,14 +74,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'BEVERAGEMIXING_TEST_DARE_ENTID': {},
     'BEVERAGEMIXING_TEST_LIVE': 'FALSE',
-    'BEVERAGEMIXING_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.BEVERAGEMIXING_TEST_LIVE
 
   if (live) {
     const client = new BeverageMixingSDK({
-      apikey: env.BEVERAGEMIXING_APIKEY,
     })
 
     let idmap: any = env['BEVERAGEMIXING_TEST_DARE_ENTID']

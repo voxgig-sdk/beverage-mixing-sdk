@@ -113,7 +113,6 @@ function basicSetup(extra?: any) {
     'BEVERAGE_MIXING_TEST_DARE_ENTID': idmap,
     'BEVERAGE_MIXING_TEST_LIVE': 'FALSE',
     'BEVERAGE_MIXING_TEST_EXPLAIN': 'FALSE',
-    'BEVERAGE_MIXING_APIKEY': 'NONE',
   })
 
   idmap = env['BEVERAGE_MIXING_TEST_DARE_ENTID']
@@ -123,7 +122,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new BeverageMixingSDK(merge([
       {
-        apikey: env.BEVERAGE_MIXING_APIKEY,
       },
       extra
     ]))

@@ -59,14 +59,12 @@ def _dare_direct_setup(mockres):
     env = runner.env_override({
         "BEVERAGEMIXING_TEST_DARE_ENTID": {},
         "BEVERAGEMIXING_TEST_LIVE": "FALSE",
-        "BEVERAGEMIXING_APIKEY": "NONE",
     })
 
     live = env.get("BEVERAGEMIXING_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("BEVERAGEMIXING_APIKEY"),
         }
         client = BeverageMixingSDK(merged_opts)
         return {

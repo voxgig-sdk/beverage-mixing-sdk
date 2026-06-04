@@ -17,8 +17,28 @@ main: {
       ]
       title: "Beverage Mixing API"
       version: "1.0.0"
+      tagline: "Fetch random truth and dare prompts from the Abhi API game collection"
+      homepage: "https://abhi-api.vercel.app"
+      docs_url: "https://abhi-api.vercel.app"
+      license_short: "Use governed by the Abhi API site Terms of Service and Privacy Policy."
+      license_md: `- Usage is subject to the Abhi API site Terms of Service and Privacy Policy.
+- No explicit licence is published alongside the endpoints.
+- Attribution to the upstream service (Abhi API by Abhishek Suresh) is recommended.
+- CORS is reported as disabled, so calls from a browser will likely require a server-side proxy.`
+      about_md: `This SDK wraps a small slice of the [Abhi API](https://abhi-api.vercel.app), a free hobby API maintained by [Abhishek Suresh](https://github.com/AbhishekSuresh2) that bundles dozens of casual endpoints across anime, games, jokes, search, and tooling. Despite the "Beverage Mixing" label inherited from the catalogue listing, the endpoints exposed here are the game prompts from the same host.
+
+What you get from the API:
+
+- A random \`truth\` prompt via \`/api/game/truth\`
+- A random \`dare\` prompt via \`/api/game/dare\`
+- Plain GET requests, no API key, JSON responses
+
+Operational notes: no authentication is required and no rate limits are documented, but the public catalogue notes that CORS is disabled on these endpoints, so browser-side calls will need to go through a server. Availability depends on the upstream Vercel deployment; treat it as best-effort.`
+      entity_desc: {
+        beverage: "Despite the SDK name, the upstream host does not expose beverage-mixing endpoints; the closest match in the catalogued routes is the truth prompt at `/api/game/truth`, surfaced here under this grouping."
+        dare: "A random dare challenge served from the Abhi API games collection at `/api/game/dare`."
+      }
+      auth: false
     }
   }
-}
-
 }

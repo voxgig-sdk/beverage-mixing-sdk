@@ -91,7 +91,6 @@ def _dare_basic_setup(extra):
         "BEVERAGEMIXING_TEST_DARE_ENTID": idmap,
         "BEVERAGEMIXING_TEST_LIVE": "FALSE",
         "BEVERAGEMIXING_TEST_EXPLAIN": "FALSE",
-        "BEVERAGEMIXING_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +101,6 @@ def _dare_basic_setup(extra):
     if env.get("BEVERAGEMIXING_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("BEVERAGEMIXING_APIKEY"),
             },
             extra or {},
         ])
