@@ -15,6 +15,9 @@ def make_config():
         },
         "options": {
             "base": "https://abhi-api.vercel.app",
+            "auth": {
+                "prefix": "Bearer",
+            },
             "headers": {
         "content-type": "application/json",
       },
@@ -27,59 +30,61 @@ def make_config():
       "beverage": {
         "fields": [
           {
+            "active": True,
             "name": "code",
             "req": True,
             "type": "`$INTEGER`",
-            "active": True,
             "index$": 0,
           },
           {
+            "active": True,
             "name": "creator",
             "req": True,
             "type": "`$STRING`",
-            "active": True,
             "index$": 1,
           },
           {
+            "active": True,
             "name": "result",
             "req": True,
             "type": "`$OBJECT`",
-            "active": True,
             "index$": 2,
           },
           {
+            "active": True,
             "name": "status",
             "req": True,
             "type": "`$BOOLEAN`",
-            "active": True,
             "index$": 3,
           },
         ],
         "name": "beverage",
         "op": {
           "load": {
+            "input": "data",
             "name": "load",
             "points": [
               {
+                "active": True,
                 "args": {
                   "query": [
                     {
+                      "active": True,
                       "example": "coffee",
                       "kind": "query",
                       "name": "beverage",
                       "orig": "beverage",
                       "reqd": False,
                       "type": "`$STRING`",
-                      "active": True,
                     },
                     {
+                      "active": True,
                       "example": "milk",
                       "kind": "query",
                       "name": "ingredient",
                       "orig": "ingredient",
                       "reqd": False,
                       "type": "`$STRING`",
-                      "active": True,
                     },
                   ],
                 },
@@ -101,11 +106,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
                 "index$": 0,
               },
             ],
-            "input": "data",
             "key$": "load",
           },
         },
@@ -116,40 +119,43 @@ def make_config():
       "dare": {
         "fields": [
           {
+            "active": True,
             "name": "code",
             "req": True,
             "type": "`$INTEGER`",
-            "active": True,
             "index$": 0,
           },
           {
+            "active": True,
             "name": "creator",
             "req": True,
             "type": "`$STRING`",
-            "active": True,
             "index$": 1,
           },
           {
+            "active": True,
             "name": "result",
             "req": True,
             "type": "`$STRING`",
-            "active": True,
             "index$": 2,
           },
           {
+            "active": True,
             "name": "status",
             "req": True,
             "type": "`$BOOLEAN`",
-            "active": True,
             "index$": 3,
           },
         ],
         "name": "dare",
         "op": {
           "load": {
+            "input": "data",
             "name": "load",
             "points": [
               {
+                "active": True,
+                "args": {},
                 "method": "GET",
                 "orig": "/api/game/dare",
                 "parts": [
@@ -157,17 +163,14 @@ def make_config():
                   "game",
                   "dare",
                 ],
+                "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
-                "args": {},
-                "select": {},
                 "index$": 0,
               },
             ],
-            "input": "data",
             "key$": "load",
           },
         },

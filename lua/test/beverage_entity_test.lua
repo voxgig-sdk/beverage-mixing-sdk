@@ -91,6 +91,7 @@ function beverage_basic_setup(extra)
     ["BEVERAGEMIXING_TEST_BEVERAGE_ENTID"] = idmap,
     ["BEVERAGEMIXING_TEST_LIVE"] = "FALSE",
     ["BEVERAGEMIXING_TEST_EXPLAIN"] = "FALSE",
+    ["BEVERAGEMIXING_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -102,6 +103,7 @@ function beverage_basic_setup(extra)
   if env["BEVERAGEMIXING_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
+        apikey = env["BEVERAGEMIXING_APIKEY"],
       },
       extra or {},
     })

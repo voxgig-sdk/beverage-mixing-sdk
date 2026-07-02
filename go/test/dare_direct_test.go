@@ -99,12 +99,14 @@ func dareDirectSetup(mockres any) *dareDirectSetupResult {
 	env := envOverride(map[string]any{
 		"BEVERAGEMIXING_TEST_DARE_ENTID": map[string]any{},
 		"BEVERAGEMIXING_TEST_LIVE":    "FALSE",
+		"BEVERAGEMIXING_APIKEY":       "NONE",
 	})
 
 	live := env["BEVERAGEMIXING_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["BEVERAGEMIXING_APIKEY"],
 		}
 		client := sdk.NewBeverageMixingSDK(mergedOpts)
 

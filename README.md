@@ -1,20 +1,8 @@
 # BeverageMixing SDK
 
-Fetch random truth and dare prompts from the Abhi API game collection
+Beverage Mixing API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Beverage Mixing API
-
-This SDK wraps a small slice of the [Abhi API](https://abhi-api.vercel.app), a free hobby API maintained by [Abhishek Suresh](https://github.com/AbhishekSuresh2) that bundles dozens of casual endpoints across anime, games, jokes, search, and tooling. Despite the "Beverage Mixing" label inherited from the catalogue listing, the endpoints exposed here are the game prompts from the same host.
-
-What you get from the API:
-
-- A random `truth` prompt via `/api/game/truth`
-- A random `dare` prompt via `/api/game/dare`
-- Plain GET requests, no API key, JSON responses
-
-Operational notes: no authentication is required and no rate limits are documented, but the public catalogue notes that CORS is disabled on these endpoints, so browser-side calls will need to go through a server. Availability depends on the upstream Vercel deployment; treat it as best-effort.
 
 ## Try it
 
@@ -48,27 +36,31 @@ gem install beverage-mixing-sdk
 luarocks install beverage-mixing-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { BeverageMixingSDK } from 'beverage-mixing'
 
-const client = new BeverageMixingSDK({})
+const client = new BeverageMixingSDK({
+  apikey: process.env.BEVERAGE-MIXING_APIKEY,
+})
 
+// Load beverage data
+const beverage = await client.Beverage().load({})
+console.log(beverage.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -98,8 +90,8 @@ The API exposes 2 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Beverage** | Despite the SDK name, the upstream host does not expose beverage-mixing endpoints; the closest match in the catalogued routes is the truth prompt at `/api/game/truth`, surfaced here under this grouping. | `/api/beverage/mix` |
-| **Dare** | A random dare challenge served from the Abhi API games collection at `/api/game/dare`. | `/api/game/dare` |
+| **Beverage** |  | `/api/beverage/mix` |
+| **Dare** |  | `/api/game/dare` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -109,15 +101,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from beveragemixing_sdk import BeverageMixingSDK
 
-client = BeverageMixingSDK({})
+client = BeverageMixingSDK({
+    "apikey": os.environ.get("BEVERAGE-MIXING_APIKEY"),
+})
 
 
 # Load a specific beverage
-beverage, err = client.Beverage(None).load(
-    {"id": "example_id"}, None
-)
+beverage, err = client.Beverage().load({"id": "example_id"})
+print(beverage)
 ```
 
 ### PHP
@@ -126,13 +120,14 @@ beverage, err = client.Beverage(None).load(
 <?php
 require_once 'beveragemixing_sdk.php';
 
-$client = new BeverageMixingSDK([]);
+$client = new BeverageMixingSDK([
+    "apikey" => getenv("BEVERAGE-MIXING_APIKEY"),
+]);
 
 
 // Load a specific beverage
-[$beverage, $err] = $client->Beverage(null)->load(
-    ["id" => "example_id"], null
-);
+[$beverage, $err] = $client->Beverage()->load(["id" => "example_id"]);
+print_r($beverage);
 ```
 
 ### Golang
@@ -140,8 +135,13 @@ $client = new BeverageMixingSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/beverage-mixing-sdk/go"
 
-client := sdk.NewBeverageMixingSDK(map[string]any{})
+client := sdk.NewBeverageMixingSDK(map[string]any{
+    "apikey": os.Getenv("BEVERAGE-MIXING_APIKEY"),
+})
 
+// Load beverage data
+beverage, err := client.Beverage(nil).Load(map[string]any{}, nil)
+fmt.Println(beverage)
 ```
 
 ### Ruby
@@ -149,13 +149,14 @@ client := sdk.NewBeverageMixingSDK(map[string]any{})
 ```ruby
 require_relative "BeverageMixing_sdk"
 
-client = BeverageMixingSDK.new({})
+client = BeverageMixingSDK.new({
+  "apikey" => ENV["BEVERAGE-MIXING_APIKEY"],
+})
 
 
 # Load a specific beverage
-beverage, err = client.Beverage(nil).load(
-  { "id" => "example_id" }, nil
-)
+beverage, err = client.Beverage().load({ "id" => "example_id" })
+puts beverage
 ```
 
 ### Lua
@@ -163,13 +164,14 @@ beverage, err = client.Beverage(nil).load(
 ```lua
 local sdk = require("beverage-mixing_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("BEVERAGE-MIXING_APIKEY"),
+})
 
 
 -- Load a specific beverage
-local beverage, err = client:Beverage(nil):load(
-  { id = "example_id" }, nil
-)
+local beverage, err = client:Beverage():load({ id = "example_id" })
+print(beverage)
 ```
 
 ## Unit testing in offline mode
@@ -188,25 +190,21 @@ const result = await client.Beverage().load({ id: 'test01' })
 ### Python
 
 ```python
-client = BeverageMixingSDK.test(None, None)
-result, err = client.Beverage(None).load(
-    {"id": "test01"}, None
-)
+client = BeverageMixingSDK.test()
+result, err = client.Beverage().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = BeverageMixingSDK::test(null, null);
-[$result, $err] = $client->Beverage(null)->load(
-    ["id" => "test01"], null
-);
+$client = BeverageMixingSDK::test();
+[$result, $err] = $client->Beverage()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Beverage(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -215,19 +213,15 @@ result, err := client.Beverage(nil).Load(
 ### Ruby
 
 ```ruby
-client = BeverageMixingSDK.test(nil, nil)
-result, err = client.Beverage(nil).load(
-  { "id" => "test01" }, nil
-)
+client = BeverageMixingSDK.test
+result, err = client.Beverage().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Beverage(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Beverage():load({ id = "test01" })
 ```
 
 ## How it works
@@ -331,15 +325,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Beverage Mixing API
-
-- Upstream: [https://abhi-api.vercel.app](https://abhi-api.vercel.app)
-
-- Usage is subject to the Abhi API site Terms of Service and Privacy Policy.
-- No explicit licence is published alongside the endpoints.
-- Attribution to the upstream service (Abhi API by Abhishek Suresh) is recommended.
-- CORS is reported as disabled, so calls from a browser will likely require a server-side proxy.
 
 ---
 

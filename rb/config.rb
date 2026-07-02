@@ -15,6 +15,9 @@ module BeverageMixingConfig
       },
       "options" => {
         "base" => "https://abhi-api.vercel.app",
+        "auth" => {
+          "prefix" => "Bearer",
+        },
         "headers" => {
           "content-type" => "application/json",
         },
@@ -27,59 +30,61 @@ module BeverageMixingConfig
         "beverage" => {
           "fields" => [
             {
+              "active" => true,
               "name" => "code",
               "req" => true,
               "type" => "`$INTEGER`",
-              "active" => true,
               "index$" => 0,
             },
             {
+              "active" => true,
               "name" => "creator",
               "req" => true,
               "type" => "`$STRING`",
-              "active" => true,
               "index$" => 1,
             },
             {
+              "active" => true,
               "name" => "result",
               "req" => true,
               "type" => "`$OBJECT`",
-              "active" => true,
               "index$" => 2,
             },
             {
+              "active" => true,
               "name" => "status",
               "req" => true,
               "type" => "`$BOOLEAN`",
-              "active" => true,
               "index$" => 3,
             },
           ],
           "name" => "beverage",
           "op" => {
             "load" => {
+              "input" => "data",
               "name" => "load",
               "points" => [
                 {
+                  "active" => true,
                   "args" => {
                     "query" => [
                       {
+                        "active" => true,
                         "example" => "coffee",
                         "kind" => "query",
                         "name" => "beverage",
                         "orig" => "beverage",
                         "reqd" => false,
                         "type" => "`$STRING`",
-                        "active" => true,
                       },
                       {
+                        "active" => true,
                         "example" => "milk",
                         "kind" => "query",
                         "name" => "ingredient",
                         "orig" => "ingredient",
                         "reqd" => false,
                         "type" => "`$STRING`",
-                        "active" => true,
                       },
                     ],
                   },
@@ -101,11 +106,9 @@ module BeverageMixingConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "active" => true,
                   "index$" => 0,
                 },
               ],
-              "input" => "data",
               "key$" => "load",
             },
           },
@@ -116,40 +119,43 @@ module BeverageMixingConfig
         "dare" => {
           "fields" => [
             {
+              "active" => true,
               "name" => "code",
               "req" => true,
               "type" => "`$INTEGER`",
-              "active" => true,
               "index$" => 0,
             },
             {
+              "active" => true,
               "name" => "creator",
               "req" => true,
               "type" => "`$STRING`",
-              "active" => true,
               "index$" => 1,
             },
             {
+              "active" => true,
               "name" => "result",
               "req" => true,
               "type" => "`$STRING`",
-              "active" => true,
               "index$" => 2,
             },
             {
+              "active" => true,
               "name" => "status",
               "req" => true,
               "type" => "`$BOOLEAN`",
-              "active" => true,
               "index$" => 3,
             },
           ],
           "name" => "dare",
           "op" => {
             "load" => {
+              "input" => "data",
               "name" => "load",
               "points" => [
                 {
+                  "active" => true,
+                  "args" => {},
                   "method" => "GET",
                   "orig" => "/api/game/dare",
                   "parts" => [
@@ -157,17 +163,14 @@ module BeverageMixingConfig
                     "game",
                     "dare",
                   ],
+                  "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "active" => true,
-                  "args" => {},
-                  "select" => {},
                   "index$" => 0,
                 },
               ],
-              "input" => "data",
               "key$" => "load",
             },
           },
