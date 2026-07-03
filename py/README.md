@@ -10,7 +10,7 @@ The Python SDK for the BeverageMixing API — an entity-oriented client followin
 
 ## Install
 ```bash
-pip install beverage-mixing-sdk
+pip install voxgig-sdk-beverage-mixing
 ```
 
 Or install from source:

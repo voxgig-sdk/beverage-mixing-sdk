@@ -10,7 +10,7 @@ The PHP SDK for the BeverageMixing API — an entity-oriented client using PHP c
 
 ## Install
 ```bash
-composer require voxgig/beverage-mixing-sdk
+composer require voxgig-sdk/beverage-mixing
 ```
 
 

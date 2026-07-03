@@ -10,7 +10,7 @@ The TypeScript SDK for the BeverageMixing API — a type-safe, entity-oriented c
 
 ## Install
 ```bash
-npm install beverage-mixing
+npm install @voxgig-sdk/beverage-mixing
 ```
 ## Tutorial: your first API call
 

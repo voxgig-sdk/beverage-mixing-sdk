@@ -10,13 +10,13 @@ The Ruby SDK for the BeverageMixing API — an entity-oriented client using idio
 
 ## Install
 ```bash
-gem install beverage-mixing-sdk
+gem install voxgig-sdk-beverage-mixing
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "beverage-mixing-sdk"
+gem "voxgig-sdk-beverage-mixing"
 ```
 
 Then run:

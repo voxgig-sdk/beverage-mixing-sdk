@@ -10,7 +10,7 @@ The Lua SDK for the BeverageMixing API — an entity-oriented client using Lua c
 
 ## Install
 ```bash
-luarocks install beverage-mixing-sdk
+luarocks install voxgig-sdk-beverage-mixing
 ```
 
 If the module is not yet published, add the source directory to
