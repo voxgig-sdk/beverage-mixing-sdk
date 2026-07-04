@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:beverage():list() / client:beverage():load({ id = ... })
-function BeverageMixingSDK:beverage(data)
+-- Idiomatic facade: client:Beverage():list() / client:Beverage():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function BeverageMixingSDK:Beverage(data)
   local EntityMod = require("entity.beverage_entity")
   if data == nil then
     if self._beverage == nil then
@@ -256,15 +257,10 @@ function BeverageMixingSDK:beverage(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:beverage() instead.
-function BeverageMixingSDK:Beverage(data)
-  local EntityMod = require("entity.beverage_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:dare():list() / client:dare():load({ id = ... })
-function BeverageMixingSDK:dare(data)
+-- Idiomatic facade: client:Dare():list() / client:Dare():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function BeverageMixingSDK:Dare(data)
   local EntityMod = require("entity.dare_entity")
   if data == nil then
     if self._dare == nil then
@@ -272,12 +268,6 @@ function BeverageMixingSDK:dare(data)
     end
     return self._dare
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:dare() instead.
-function BeverageMixingSDK:Dare(data)
-  local EntityMod = require("entity.dare_entity")
   return EntityMod.new(self, data)
 end
 

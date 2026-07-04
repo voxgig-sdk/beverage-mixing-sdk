@@ -26,9 +26,9 @@ import { BeverageMixingSDK } from '@voxgig-sdk/beverage-mixing'
 
 const client = new BeverageMixingSDK()
 
-// Load beverage data
-const beverage = await client.beverage.load({})
-console.log(beverage.data)
+// Load beverage data (returns a Beverage)
+const beverage = await client.Beverage().load()
+console.log(beverage)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -85,8 +85,8 @@ from beveragemixing_sdk import BeverageMixingSDK
 client = BeverageMixingSDK()
 
 
-# Load a specific beverage
-beverage = client.beverage.load({"id": "example_id"})
+# Load a specific beverage (returns the record, raises on error)
+beverage = client.Beverage().load({"id": "example_id"})
 print(beverage)
 ```
 
@@ -99,8 +99,8 @@ require_once 'beveragemixing_sdk.php';
 $client = new BeverageMixingSDK();
 
 
-// Load a specific beverage
-$beverage = $client->beverage()->load(["id" => "example_id"]);
+// Load a specific beverage (returns the bare record; throws on error)
+$beverage = $client->Beverage()->load(["id" => "example_id"]);
 print_r($beverage);
 ```
 
@@ -124,8 +124,8 @@ require_relative "BeverageMixing_sdk"
 client = BeverageMixingSDK.new
 
 
-# Load a specific beverage
-beverage = client.beverage.load({ "id" => "example_id" })
+# Load a specific beverage (returns the bare record; raises on error)
+beverage = client.Beverage.load({ "id" => "example_id" })
 puts beverage
 ```
 
@@ -138,7 +138,7 @@ local client = sdk.new()
 
 
 -- Load a specific beverage
-local beverage, err = client:beverage():load({ id = "example_id" })
+local beverage, err = client:Beverage():load({ id = "example_id" })
 print(beverage)
 ```
 
@@ -151,22 +151,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = BeverageMixingSDK.test()
-const result = await client.beverage.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const beverage = await client.Beverage().load({ id: 'test01' })
+// beverage is a bare Beverage populated with mock data
+console.log(beverage)
 ```
 
 ### Python
 
 ```python
 client = BeverageMixingSDK.test()
-result = client.beverage.load({"id": "test01"})
+beverage = client.Beverage().load({"id": "test01"})
+print(beverage)
 ```
 
 ### PHP
 
 ```php
-$client = BeverageMixingSDK::test();
-$result = $client->beverage()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = BeverageMixingSDK::test([
+    "entity" => ["beverage" => ["test01" => ["id" => "test01"]]],
+]);
+$beverage = $client->Beverage()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -181,15 +186,18 @@ result, err := client.Beverage(nil).Load(
 ### Ruby
 
 ```ruby
-client = BeverageMixingSDK.test
-result = client.beverage.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = BeverageMixingSDK.test({
+  "entity" => { "beverage" => { "test01" => { "id" => "test01" } } },
+})
+beverage = client.Beverage.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:beverage():load({ id = "test01" })
+local result, err = client:Beverage():load({ id = "test01" })
 ```
 
 ## How it works
@@ -237,6 +245,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

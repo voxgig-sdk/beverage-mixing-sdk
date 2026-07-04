@@ -89,7 +89,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## BeverageEntity
 
 ```php
-$beverage = $client->beverage();
+$beverage = $client->Beverage();
 ```
 
 ### Fields
@@ -108,7 +108,7 @@ $beverage = $client->beverage();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->beverage()->load(["id" => "beverage_id"]);
+$result = $client->Beverage()->load(["id" => "beverage_id"]);
 ```
 
 ### Common Methods
@@ -144,7 +144,7 @@ Return the entity name.
 ## DareEntity
 
 ```php
-$dare = $client->dare();
+$dare = $client->Dare();
 ```
 
 ### Fields
@@ -163,7 +163,7 @@ $dare = $client->dare();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->dare()->load(["id" => "dare_id"]);
+$result = $client->Dare()->load(["id" => "dare_id"]);
 ```
 
 ### Common Methods

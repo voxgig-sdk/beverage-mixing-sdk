@@ -208,26 +208,14 @@ class BeverageMixingSDK
   end
 
 
-  # Idiomatic facade: client.beverage.list / client.beverage.load({ "id" => ... })
-  def beverage
-    require_relative 'entity/beverage_entity'
-    @beverage ||= BeverageEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.beverage instead.
+  # Canonical facade: client.Beverage.list / client.Beverage.load({ "id" => ... })
   def Beverage(data = nil)
     require_relative 'entity/beverage_entity'
     BeverageEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.dare.list / client.dare.load({ "id" => ... })
-  def dare
-    require_relative 'entity/dare_entity'
-    @dare ||= DareEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.dare instead.
+  # Canonical facade: client.Dare.list / client.Dare.load({ "id" => ... })
   def Dare(data = nil)
     require_relative 'entity/dare_entity'
     DareEntity.new(self, data)

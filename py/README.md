@@ -33,10 +33,12 @@ client = BeverageMixingSDK()
 
 ### 3. Load a beverage
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.beverage.load({"id": "example_id"})
-    print(result)
+    beverage = client.Beverage().load({"id": "example_id"})
+    print(beverage)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -84,8 +86,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = BeverageMixingSDK.test()
 
-result = client.beverage.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+beverage = client.Beverage().load({"id": "test01"})
+# beverage contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -235,7 +238,7 @@ API path: `/api/game/dare`
 
 ### Beverage
 
-Create an instance: `const beverage = client.beverage`
+Create an instance: `beverage = client.Beverage()`
 
 #### Operations
 
@@ -254,14 +257,14 @@ Create an instance: `const beverage = client.beverage`
 
 #### Example: Load
 
-```ts
-const beverage = await client.beverage.load({ id: 'beverage_id' })
+```python
+beverage = client.Beverage().load({"id": "beverage_id"})
 ```
 
 
 ### Dare
 
-Create an instance: `const dare = client.dare`
+Create an instance: `dare = client.Dare()`
 
 #### Operations
 
@@ -280,8 +283,8 @@ Create an instance: `const dare = client.dare`
 
 #### Example: Load
 
-```ts
-const dare = await client.dare.load({ id: 'dare_id' })
+```python
+dare = client.Dare().load({"id": "dare_id"})
 ```
 
 
@@ -355,7 +358,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-beverage = client.beverage
+beverage = client.Beverage()
 beverage.load({"id": "example_id"})
 
 # beverage.data_get() now returns the loaded beverage data

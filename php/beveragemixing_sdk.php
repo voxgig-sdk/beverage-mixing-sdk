@@ -233,10 +233,10 @@ class BeverageMixingSDK
 
     private $_beverage = null;
 
-    // Idiomatic facade: $client->beverage()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Beverage() (PHP method
-    // names are case-insensitive).
-    public function beverage($data = null)
+    // Canonical facade: $client->Beverage()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->beverage()
+    // resolves here too.
+    public function Beverage($data = null)
     {
         require_once __DIR__ . '/entity/beverage_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class BeverageMixingSDK
 
     private $_dare = null;
 
-    // Idiomatic facade: $client->dare()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Dare() (PHP method
-    // names are case-insensitive).
-    public function dare($data = null)
+    // Canonical facade: $client->Dare()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->dare()
+    // resolves here too.
+    public function Dare($data = null)
     {
         require_once __DIR__ . '/entity/dare_entity.php';
         if ($data === null) {

@@ -87,7 +87,7 @@ same parameters as `direct()`.
 ## BeverageEntity
 
 ```lua
-local beverage = client:beverage(nil)
+local beverage = client:Beverage(nil)
 ```
 
 ### Fields
@@ -106,7 +106,7 @@ local beverage = client:beverage(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:beverage():load({ id = "beverage_id" })
+local result, err = client:Beverage():load({ id = "beverage_id" })
 ```
 
 ### Common Methods
@@ -142,7 +142,7 @@ Return the entity name.
 ## DareEntity
 
 ```lua
-local dare = client:dare(nil)
+local dare = client:Dare(nil)
 ```
 
 ### Fields
@@ -161,7 +161,7 @@ local dare = client:dare(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:dare():load({ id = "dare_id" })
+local result, err = client:Dare():load({ id = "dare_id" })
 ```
 
 ### Common Methods

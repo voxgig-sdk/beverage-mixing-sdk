@@ -121,7 +121,7 @@ Alias for `BeverageMixingSDK.test()`.
 ## BeverageEntity
 
 ```ts
-const beverage = client.beverage
+const beverage = client.Beverage()
 ```
 
 ### Fields
@@ -140,7 +140,7 @@ const beverage = client.beverage
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.beverage.load({ id: 'beverage_id' })
+const result = await client.Beverage().load({ id: 'beverage_id' })
 ```
 
 ### Common Methods
@@ -174,7 +174,7 @@ Return a copy of the entity options.
 ## DareEntity
 
 ```ts
-const dare = client.dare
+const dare = client.Dare()
 ```
 
 ### Fields
@@ -193,7 +193,7 @@ const dare = client.dare
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.dare.load({ id: 'dare_id' })
+const result = await client.Dare().load({ id: 'dare_id' })
 ```
 
 ### Common Methods

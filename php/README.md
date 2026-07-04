@@ -33,9 +33,10 @@ $client = new BeverageMixingSDK();
 
 ```php
 try {
-    $result = $client->beverage()->load(["id" => "example_id"]);
-    print_r($result);
-} catch (\Exception $err) {
+    // load() returns the bare Beverage record (throws on error).
+    $beverage = $client->Beverage()->load(["id" => "example_id"]);
+    print_r($beverage);
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -81,13 +82,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = BeverageMixingSDK::test();
+$client = BeverageMixingSDK::test([
+    "entity" => ["beverage" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->beverage()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$beverage = $client->Beverage()->load(["id" => "test01"]);
+print_r($beverage);
 ```
 
 ### Use a custom fetch function
@@ -240,7 +245,7 @@ API path: `/api/game/dare`
 
 ### Beverage
 
-Create an instance: `const beverage = client.beverage`
+Create an instance: `$beverage = $client->Beverage();`
 
 #### Operations
 
@@ -259,14 +264,15 @@ Create an instance: `const beverage = client.beverage`
 
 #### Example: Load
 
-```ts
-const beverage = await client.beverage.load({ id: 'beverage_id' })
+```php
+// load() returns the bare Beverage record (throws on error).
+$beverage = $client->Beverage()->load(["id" => "beverage_id"]);
 ```
 
 
 ### Dare
 
-Create an instance: `const dare = client.dare`
+Create an instance: `$dare = $client->Dare();`
 
 #### Operations
 
@@ -285,8 +291,9 @@ Create an instance: `const dare = client.dare`
 
 #### Example: Load
 
-```ts
-const dare = await client.dare.load({ id: 'dare_id' })
+```php
+// load() returns the bare Dare record (throws on error).
+$dare = $client->Dare()->load(["id" => "dare_id"]);
 ```
 
 
@@ -361,7 +368,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$beverage = $client->beverage();
+$beverage = $client->Beverage();
 $beverage->load(["id" => "example_id"]);
 
 // $beverage->dataGet() now returns the loaded beverage data

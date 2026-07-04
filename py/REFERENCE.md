@@ -84,7 +84,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## BeverageEntity
 
 ```python
-beverage = client.beverage
+beverage = client.Beverage()
 ```
 
 ### Fields
@@ -103,7 +103,7 @@ beverage = client.beverage
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.beverage.load({"id": "beverage_id"})
+result = client.Beverage().load({"id": "beverage_id"})
 ```
 
 ### Common Methods
@@ -138,7 +138,7 @@ Return the entity name.
 ## DareEntity
 
 ```python
-dare = client.dare
+dare = client.Dare()
 ```
 
 ### Fields
@@ -157,7 +157,7 @@ dare = client.dare
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.dare.load({"id": "dare_id"})
+result = client.Dare().load({"id": "dare_id"})
 ```
 
 ### Common Methods

@@ -220,41 +220,21 @@ class BeverageMixingSDK:
         }
 
 
-    @property
-    def beverage(self):
-        """Idiomatic facade: client.beverage.list() / client.beverage.load({"id": ...})."""
-        from entity.beverage_entity import BeverageEntity
-        cached = getattr(self, "_beverage", None)
-        if cached is None:
-            cached = BeverageEntity(self, None)
-            self._beverage = cached
-        return cached
-
-    def Beverage(self, data=None):
-        # Deprecated: use client.beverage instead.
+    def Beverage(self, data=None) -> "BeverageEntity":
+        """Entity factory: client.Beverage().list({}) / client.Beverage().load({"id": ...})."""
         from entity.beverage_entity import BeverageEntity
         return BeverageEntity(self, data)
 
 
-    @property
-    def dare(self):
-        """Idiomatic facade: client.dare.list() / client.dare.load({"id": ...})."""
-        from entity.dare_entity import DareEntity
-        cached = getattr(self, "_dare", None)
-        if cached is None:
-            cached = DareEntity(self, None)
-            self._dare = cached
-        return cached
-
-    def Dare(self, data=None):
-        # Deprecated: use client.dare instead.
+    def Dare(self, data=None) -> "DareEntity":
+        """Entity factory: client.Dare().list({}) / client.Dare().load({"id": ...})."""
         from entity.dare_entity import DareEntity
         return DareEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "BeverageMixingSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -274,3 +254,10 @@ class BeverageMixingSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.beverage_entity import BeverageEntity
+    from entity.dare_entity import DareEntity
