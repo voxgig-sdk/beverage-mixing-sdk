@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -122,7 +121,7 @@ Alias for `BeverageMixingSDK.test()`.
 ## BeverageEntity
 
 ```ts
-const beverage = client.Beverage()
+const beverage = client.beverage
 ```
 
 ### Fields
@@ -141,7 +140,7 @@ const beverage = client.Beverage()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Beverage().load({ id: 'beverage_id' })
+const result = await client.beverage.load({ id: 'beverage_id' })
 ```
 
 ### Common Methods
@@ -175,7 +174,7 @@ Return a copy of the entity options.
 ## DareEntity
 
 ```ts
-const dare = client.Dare()
+const dare = client.dare
 ```
 
 ### Fields
@@ -194,7 +193,7 @@ const dare = client.Dare()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Dare().load({ id: 'dare_id' })
+const result = await client.dare.load({ id: 'dare_id' })
 ```
 
 ### Common Methods

@@ -4,6 +4,7 @@
 main: {
   kit: {
     info: {
+      auth: false
       contact: {
         name: "ABHISHEK SURESH"
         url: "https://abhi-api.vercel.app"

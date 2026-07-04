@@ -49,8 +49,7 @@ class DareEntityTest extends TestCase
         // LOAD
         $dare_ref01_ent = $client->Dare(null);
         $dare_ref01_match_dt0 = [];
-        [$dare_ref01_data_dt0_loaded, $err] = $dare_ref01_ent->load($dare_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $dare_ref01_data_dt0_loaded = $dare_ref01_ent->load($dare_ref01_match_dt0, null);
         $this->assertNotNull($dare_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function dare_basic_setup($extra)
         "BEVERAGEMIXING_TEST_DARE_ENTID" => $idmap,
         "BEVERAGEMIXING_TEST_LIVE" => "FALSE",
         "BEVERAGEMIXING_TEST_EXPLAIN" => "FALSE",
-        "BEVERAGEMIXING_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function dare_basic_setup($extra)
     if ($env["BEVERAGEMIXING_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["BEVERAGEMIXING_APIKEY"],
             ],
             $extra ?? [],
         ]);

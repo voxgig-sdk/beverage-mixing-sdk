@@ -42,8 +42,7 @@ class BeverageEntityTest < Minitest::Test
     # LOAD
     beverage_ref01_ent = client.Beverage(nil)
     beverage_ref01_match_dt0 = {}
-    beverage_ref01_data_dt0_loaded, err = beverage_ref01_ent.load(beverage_ref01_match_dt0, nil)
-    assert_nil err
+    beverage_ref01_data_dt0_loaded = beverage_ref01_ent.load(beverage_ref01_match_dt0, nil)
     assert !beverage_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def beverage_basic_setup(extra)
     "BEVERAGEMIXING_TEST_BEVERAGE_ENTID" => idmap,
     "BEVERAGEMIXING_TEST_LIVE" => "FALSE",
     "BEVERAGEMIXING_TEST_EXPLAIN" => "FALSE",
-    "BEVERAGEMIXING_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def beverage_basic_setup(extra)
   if env["BEVERAGEMIXING_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["BEVERAGEMIXING_APIKEY"],
       },
       extra || {},
     ])

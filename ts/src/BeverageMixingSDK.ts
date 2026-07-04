@@ -3,6 +3,8 @@
 import { BeverageEntity } from './entity/BeverageEntity'
 import { DareEntity } from './entity/DareEntity'
 
+export type * from './BeverageMixingTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -203,12 +205,28 @@ class BeverageMixingSDK {
 
 
 
+  _beverage?: BeverageEntity
+
+  // Idiomatic facade: `client.beverage.list()` / `client.beverage.load({ id })`.
+  get beverage(): BeverageEntity {
+    return (this._beverage ??= new BeverageEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.beverage` instead. */
   Beverage(data?: any) {
     const self = this
     return new BeverageEntity(self,data)
   }
 
 
+  _dare?: DareEntity
+
+  // Idiomatic facade: `client.dare.list()` / `client.dare.load({ id })`.
+  get dare(): DareEntity {
+    return (this._dare ??= new DareEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.dare` instead. */
   Dare(data?: any) {
     const self = this
     return new DareEntity(self,data)

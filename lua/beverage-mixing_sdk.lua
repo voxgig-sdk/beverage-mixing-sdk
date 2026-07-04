@@ -244,12 +244,38 @@ end
 
 
 
+-- Idiomatic facade: client:beverage():list() / client:beverage():load({ id = ... })
+function BeverageMixingSDK:beverage(data)
+  local EntityMod = require("entity.beverage_entity")
+  if data == nil then
+    if self._beverage == nil then
+      self._beverage = EntityMod.new(self, nil)
+    end
+    return self._beverage
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:beverage() instead.
 function BeverageMixingSDK:Beverage(data)
   local EntityMod = require("entity.beverage_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:dare():list() / client:dare():load({ id = ... })
+function BeverageMixingSDK:dare(data)
+  local EntityMod = require("entity.dare_entity")
+  if data == nil then
+    if self._dare == nil then
+      self._dare = EntityMod.new(self, nil)
+    end
+    return self._dare
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:dare() instead.
 function BeverageMixingSDK:Dare(data)
   local EntityMod = require("entity.dare_entity")
   return EntityMod.new(self, data)

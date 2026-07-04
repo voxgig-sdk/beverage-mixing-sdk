@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Beverage,
+  BeverageLoadMatch,
+} from '../BeverageMixingTypes'
 
 // TODO: needs Entity superclass
-class BeverageEntity extends BeverageMixingEntityBase {
+class BeverageEntity extends BeverageMixingEntityBase<Beverage> {
 
   constructor(client: BeverageMixingSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class BeverageEntity extends BeverageMixingEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: BeverageLoadMatch, ctrl?: Control): Promise<Beverage> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class BeverageEntity extends BeverageMixingEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Beverage> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

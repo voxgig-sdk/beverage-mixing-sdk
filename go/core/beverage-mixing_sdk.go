@@ -245,11 +245,17 @@ func (sdk *BeverageMixingSDK) Direct(fetchargs map[string]any) (map[string]any, 
 }
 
 
+// Beverage returns a Beverage entity bound to this client.
+// Idiomatic usage: client.Beverage(nil).List(nil, nil) or
+// client.Beverage(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *BeverageMixingSDK) Beverage(data map[string]any) BeverageMixingEntity {
 	return NewBeverageEntityFunc(sdk, data)
 }
 
 
+// Dare returns a Dare entity bound to this client.
+// Idiomatic usage: client.Dare(nil).List(nil, nil) or
+// client.Dare(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *BeverageMixingSDK) Dare(data map[string]any) BeverageMixingEntity {
 	return NewDareEntityFunc(sdk, data)
 }

@@ -49,8 +49,7 @@ class TestDareEntity:
         # LOAD
         dare_ref01_ent = client.Dare(None)
         dare_ref01_match_dt0 = {}
-        dare_ref01_data_dt0_loaded, err = dare_ref01_ent.load(dare_ref01_match_dt0, None)
-        assert err is None
+        dare_ref01_data_dt0_loaded = dare_ref01_ent.load(dare_ref01_match_dt0, None)
         assert dare_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _dare_basic_setup(extra):
         "BEVERAGEMIXING_TEST_DARE_ENTID": idmap,
         "BEVERAGEMIXING_TEST_LIVE": "FALSE",
         "BEVERAGEMIXING_TEST_EXPLAIN": "FALSE",
-        "BEVERAGEMIXING_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _dare_basic_setup(extra):
     if env.get("BEVERAGEMIXING_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("BEVERAGEMIXING_APIKEY"),
             },
             extra or {},
         ])

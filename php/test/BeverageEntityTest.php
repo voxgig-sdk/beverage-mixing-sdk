@@ -49,8 +49,7 @@ class BeverageEntityTest extends TestCase
         // LOAD
         $beverage_ref01_ent = $client->Beverage(null);
         $beverage_ref01_match_dt0 = [];
-        [$beverage_ref01_data_dt0_loaded, $err] = $beverage_ref01_ent->load($beverage_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $beverage_ref01_data_dt0_loaded = $beverage_ref01_ent->load($beverage_ref01_match_dt0, null);
         $this->assertNotNull($beverage_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function beverage_basic_setup($extra)
         "BEVERAGEMIXING_TEST_BEVERAGE_ENTID" => $idmap,
         "BEVERAGEMIXING_TEST_LIVE" => "FALSE",
         "BEVERAGEMIXING_TEST_EXPLAIN" => "FALSE",
-        "BEVERAGEMIXING_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function beverage_basic_setup($extra)
     if ($env["BEVERAGEMIXING_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["BEVERAGEMIXING_APIKEY"],
             ],
             $extra ?? [],
         ]);

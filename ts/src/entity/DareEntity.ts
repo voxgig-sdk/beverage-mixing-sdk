@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Dare,
+  DareLoadMatch,
+} from '../BeverageMixingTypes'
 
 // TODO: needs Entity superclass
-class DareEntity extends BeverageMixingEntityBase {
+class DareEntity extends BeverageMixingEntityBase<Dare> {
 
   constructor(client: BeverageMixingSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class DareEntity extends BeverageMixingEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: DareLoadMatch, ctrl?: Control): Promise<Dare> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class DareEntity extends BeverageMixingEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Dare> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

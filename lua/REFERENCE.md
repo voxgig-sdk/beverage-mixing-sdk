@@ -19,7 +19,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -88,7 +87,7 @@ same parameters as `direct()`.
 ## BeverageEntity
 
 ```lua
-local beverage = client:Beverage(nil)
+local beverage = client:beverage(nil)
 ```
 
 ### Fields
@@ -107,7 +106,7 @@ local beverage = client:Beverage(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Beverage():load({ id = "beverage_id" })
+local result, err = client:beverage():load({ id = "beverage_id" })
 ```
 
 ### Common Methods
@@ -143,7 +142,7 @@ Return the entity name.
 ## DareEntity
 
 ```lua
-local dare = client:Dare(nil)
+local dare = client:dare(nil)
 ```
 
 ### Fields
@@ -162,7 +161,7 @@ local dare = client:Dare(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Dare():load({ id = "dare_id" })
+local result, err = client:dare():load({ id = "dare_id" })
 ```
 
 ### Common Methods
