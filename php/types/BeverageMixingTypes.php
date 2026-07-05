@@ -21,7 +21,7 @@ class Beverage
     public bool $status;
 }
 
-/** Match filter for Beverage#load (any subset of Beverage fields). */
+/** Request payload for Beverage#load. */
 class BeverageLoadMatch
 {
     public ?int $code = null;
@@ -39,7 +39,7 @@ class Dare
     public bool $status;
 }
 
-/** Match filter for Dare#load (any subset of Dare fields). */
+/** Request payload for Dare#load. */
 class DareLoadMatch
 {
     public ?int $code = null;

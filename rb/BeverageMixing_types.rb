@@ -29,7 +29,7 @@ Beverage = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Beverage#load (any subset of Beverage fields).
+# Request payload for Beverage#load.
 #
 # @!attribute [rw] code
 #   @return [Integer, nil]
@@ -71,7 +71,7 @@ Dare = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Dare#load (any subset of Dare fields).
+# Request payload for Dare#load.
 #
 # @!attribute [rw] code
 #   @return [Integer, nil]

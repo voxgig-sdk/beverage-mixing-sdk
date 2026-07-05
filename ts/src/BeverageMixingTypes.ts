@@ -12,7 +12,12 @@ export interface Beverage {
   status: boolean
 }
 
-export type BeverageLoadMatch = Partial<Beverage>
+export interface BeverageLoadMatch {
+  code?: number
+  creator?: string
+  result?: Record<string, any>
+  status?: boolean
+}
 
 export interface Dare {
   code: number
@@ -21,5 +26,10 @@ export interface Dare {
   status: boolean
 }
 
-export type DareLoadMatch = Partial<Dare>
+export interface DareLoadMatch {
+  code?: number
+  creator?: string
+  result?: string
+  status?: boolean
+}
 

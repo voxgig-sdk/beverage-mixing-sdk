@@ -8,7 +8,7 @@ Complete API reference for the BeverageMixing Python SDK.
 ### Constructor
 
 ```python
-from beverage-mixing_sdk import BeverageMixingSDK
+from beveragemixing_sdk import BeverageMixingSDK
 
 client = BeverageMixingSDK(options)
 ```
@@ -91,10 +91,10 @@ beverage = client.Beverage()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | ``$INTEGER`` | Yes |  |
-| `creator` | ``$STRING`` | Yes |  |
-| `result` | ``$OBJECT`` | Yes |  |
-| `status` | ``$BOOLEAN`` | Yes |  |
+| `code` | `int` | Yes |  |
+| `creator` | `str` | Yes |  |
+| `result` | `dict` | Yes |  |
+| `status` | `bool` | Yes |  |
 
 ### Operations
 
@@ -103,7 +103,7 @@ beverage = client.Beverage()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Beverage().load({"id": "beverage_id"})
+result = client.Beverage().load()
 ```
 
 ### Common Methods
@@ -145,10 +145,10 @@ dare = client.Dare()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | ``$INTEGER`` | Yes |  |
-| `creator` | ``$STRING`` | Yes |  |
-| `result` | ``$STRING`` | Yes |  |
-| `status` | ``$BOOLEAN`` | Yes |  |
+| `code` | `int` | Yes |  |
+| `creator` | `str` | Yes |  |
+| `result` | `str` | Yes |  |
+| `status` | `bool` | Yes |  |
 
 ### Operations
 
@@ -157,7 +157,7 @@ dare = client.Dare()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Dare().load({"id": "dare_id"})
+result = client.Dare().load()
 ```
 
 ### Common Methods

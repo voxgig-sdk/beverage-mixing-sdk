@@ -128,10 +128,10 @@ const beverage = client.Beverage()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | ``$INTEGER`` | Yes |  |
-| `creator` | ``$STRING`` | Yes |  |
-| `result` | ``$OBJECT`` | Yes |  |
-| `status` | ``$BOOLEAN`` | Yes |  |
+| `code` | `number` | Yes |  |
+| `creator` | `string` | Yes |  |
+| `result` | `Record<string, any>` | Yes |  |
+| `status` | `boolean` | Yes |  |
 
 ### Operations
 
@@ -140,7 +140,7 @@ const beverage = client.Beverage()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Beverage().load({ id: 'beverage_id' })
+const result = await client.Beverage().load()
 ```
 
 ### Common Methods
@@ -181,10 +181,10 @@ const dare = client.Dare()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | ``$INTEGER`` | Yes |  |
-| `creator` | ``$STRING`` | Yes |  |
-| `result` | ``$STRING`` | Yes |  |
-| `status` | ``$BOOLEAN`` | Yes |  |
+| `code` | `number` | Yes |  |
+| `creator` | `string` | Yes |  |
+| `result` | `string` | Yes |  |
+| `status` | `boolean` | Yes |  |
 
 ### Operations
 
@@ -193,7 +193,7 @@ const dare = client.Dare()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Dare().load({ id: 'dare_id' })
+const result = await client.Dare().load()
 ```
 
 ### Common Methods

@@ -4,6 +4,8 @@
 
 The Golang SDK for the BeverageMixing API — an entity-oriented client using standard Go conventions. No generics required; data flows as `map[string]any`.
 
+It exposes the API as capitalised, semantic **Entities** — e.g. `client.Beverage(nil)` — each with the same small set of operations (`Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
+
 > Other languages, the CLI, and MCP server live alongside this one — see
 > the [top-level README](../README.md).
 
@@ -49,12 +51,41 @@ func main() {
     client := sdk.New()
 
     // Load a single beverage — the value is the loaded record.
-    beverage, err := client.Beverage(nil).Load(map[string]any{"id": "example_id"}, nil)
+    beverage, err := client.Beverage(nil).Load(nil, nil)
     if err != nil {
         panic(err)
     }
     fmt.Println(beverage)
 }
+```
+
+
+## Error handling
+
+Every entity operation returns `(value, error)`. Check `err` before
+using the value — there is no exception to catch:
+
+```go
+beverage, err := client.Beverage(nil).Load(nil, nil)
+if err != nil {
+    // handle err
+    return
+}
+_ = beverage
+```
+
+`Direct` follows the same `(value, error)` convention:
+
+```go
+result, err := client.Direct(map[string]any{
+    "path":   "/api/resource/{id}",
+    "method": "GET",
+    "params": map[string]any{"id": "example_id"},
+})
+if err != nil {
+    // handle err
+}
+_ = result
 ```
 
 
@@ -105,12 +136,12 @@ Create a mock client for unit testing — no server required:
 client := sdk.Test()
 
 beverage, err := client.Beverage(nil).Load(
-    map[string]any{"id": "test01"}, nil,
+    nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(beverage) // the loaded mock data
+fmt.Println(beverage) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -197,10 +228,6 @@ All entities implement the `BeverageMixingEntity` interface.
 | Method | Signature | Description |
 | --- | --- | --- |
 | `Load` | `(reqmatch, ctrl map[string]any) (any, error)` | Load a single entity by match criteria. |
-| `List` | `(reqmatch, ctrl map[string]any) (any, error)` | List entities matching the criteria. |
-| `Create` | `(reqdata, ctrl map[string]any) (any, error)` | Create a new entity. |
-| `Update` | `(reqdata, ctrl map[string]any) (any, error)` | Update an existing entity. |
-| `Remove` | `(reqmatch, ctrl map[string]any) (any, error)` | Remove an entity. |
 | `Data` | `(args ...any) any` | Get or set entity data. |
 | `Match` | `(args ...any) any` | Get or set entity match criteria. |
 | `Make` | `() Entity` | Create a new instance with the same options. |
@@ -213,16 +240,15 @@ operation's data **directly** — there is no wrapper:
 
 | Operation | `value` |
 | --- | --- |
-| `Load` / `Create` / `Update` / `Remove` | the entity record (`map[string]any`) |
-| `List` | a `[]any` of entity records |
+| `Load` | the entity record (`map[string]any`) |
 
 Check `err` first, then use the value directly (or the typed
 `...Typed` variants, which return the entity's model struct and a typed
 slice):
 
-    beverage, err := client.Beverage(nil).Load(map[string]any{"id": "example_id"}, nil)
+    beverage, err := client.Beverage(nil).Load(nil, nil)
     if err != nil { /* handle */ }
-    // beverage is the loaded record
+    // beverage is the returned record
 
 Only `Direct()` returns a response envelope — a `map[string]any` with
 `"ok"`, `"status"`, `"headers"`, and `"data"` keys.
@@ -274,15 +300,15 @@ Create an instance: `beverage := client.Beverage(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `code` | ``$INTEGER`` |  |
-| `creator` | ``$STRING`` |  |
-| `result` | ``$OBJECT`` |  |
-| `status` | ``$BOOLEAN`` |  |
+| `code` | `int` |  |
+| `creator` | `string` |  |
+| `result` | `map[string]any` |  |
+| `status` | `bool` |  |
 
 #### Example: Load
 
 ```go
-beverage, err := client.Beverage(nil).Load(map[string]any{"id": "beverage_id"}, nil)
+beverage, err := client.Beverage(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -304,15 +330,15 @@ Create an instance: `dare := client.Dare(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `code` | ``$INTEGER`` |  |
-| `creator` | ``$STRING`` |  |
-| `result` | ``$STRING`` |  |
-| `status` | ``$BOOLEAN`` |  |
+| `code` | `int` |  |
+| `creator` | `string` |  |
+| `result` | `string` |  |
+| `status` | `bool` |  |
 
 #### Example: Load
 
 ```go
-dare, err := client.Dare(nil).Load(map[string]any{"id": "dare_id"}, nil)
+dare, err := client.Dare(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -320,12 +346,16 @@ fmt.Println(dare) // the loaded record
 ```
 
 
-## Explanation
+## Advanced
+
+> The sections above cover everyday use. The material below explains the
+> SDK's internals — useful when extending it with custom features, but not
+> needed for normal use.
 
 ### The operation pipeline
 
-Every entity operation (load, list, create, update, remove) follows a
-six-stage pipeline. Each stage fires a feature hook before executing:
+Every entity operation follows a six-stage pipeline. Each stage fires a
+feature hook before executing:
 
 ```
 PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
@@ -342,9 +372,9 @@ PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
 - **PreDone**: Final stage before returning to the caller. Entity
   state (match, data) is updated here.
 
-If any stage returns an error, the pipeline short-circuits and the
-error is returned to the caller. An unexpected panic triggers the
-`PreUnexpected` hook.
+If any stage errors, the pipeline short-circuits and the error surfaces
+to the caller — see [Error handling](#error-handling) for how that looks
+in this language.
 
 ### Features and hooks
 
@@ -390,9 +420,9 @@ stores the returned data and match criteria internally.
 
 ```go
 beverage := client.Beverage(nil)
-beverage.Load(map[string]any{"id": "example_id"}, nil)
+beverage.Load(nil, nil)
 
-// beverage.Data() now returns the loaded beverage data
+// beverage.Data() now returns the beverage data from the last load
 // beverage.Match() returns the last match criteria
 ```
 

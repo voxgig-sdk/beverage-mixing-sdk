@@ -13,6 +13,10 @@
 ---@field status boolean
 
 ---@class BeverageLoadMatch
+---@field code? number
+---@field creator? string
+---@field result? table
+---@field status? boolean
 
 ---@class Dare
 ---@field code number
@@ -21,6 +25,10 @@
 ---@field status boolean
 
 ---@class DareLoadMatch
+---@field code? number
+---@field creator? string
+---@field result? string
+---@field status? boolean
 
 local M = {}
 

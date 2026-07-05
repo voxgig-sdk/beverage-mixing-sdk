@@ -221,13 +221,13 @@ class BeverageMixingSDK:
 
 
     def Beverage(self, data=None) -> "BeverageEntity":
-        """Entity factory: client.Beverage().list({}) / client.Beverage().load({"id": ...})."""
+        """Entity factory: client.Beverage().list() / client.Beverage().load({"id": ...})."""
         from entity.beverage_entity import BeverageEntity
         return BeverageEntity(self, data)
 
 
     def Dare(self, data=None) -> "DareEntity":
-        """Entity factory: client.Dare().list({}) / client.Dare().load({"id": ...})."""
+        """Entity factory: client.Dare().list() / client.Dare().load({"id": ...})."""
         from entity.dare_entity import DareEntity
         return DareEntity(self, data)
 

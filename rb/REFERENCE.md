@@ -8,7 +8,7 @@ Complete API reference for the BeverageMixing Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'beverage-mixing_sdk'
+require_relative 'BeverageMixing_sdk'
 
 client = BeverageMixingSDK.new(options)
 ```
@@ -97,10 +97,10 @@ beverage = client.Beverage
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | ``$INTEGER`` | Yes |  |
-| `creator` | ``$STRING`` | Yes |  |
-| `result` | ``$OBJECT`` | Yes |  |
-| `status` | ``$BOOLEAN`` | Yes |  |
+| `code` | `Integer` | Yes |  |
+| `creator` | `String` | Yes |  |
+| `result` | `Hash` | Yes |  |
+| `status` | `Boolean` | Yes |  |
 
 ### Operations
 
@@ -109,7 +109,7 @@ beverage = client.Beverage
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Beverage.load({ "id" => "beverage_id" })
+result = client.Beverage.load()
 ```
 
 ### Common Methods
@@ -152,10 +152,10 @@ dare = client.Dare
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | ``$INTEGER`` | Yes |  |
-| `creator` | ``$STRING`` | Yes |  |
-| `result` | ``$STRING`` | Yes |  |
-| `status` | ``$BOOLEAN`` | Yes |  |
+| `code` | `Integer` | Yes |  |
+| `creator` | `String` | Yes |  |
+| `result` | `String` | Yes |  |
+| `status` | `Boolean` | Yes |  |
 
 ### Operations
 
@@ -164,7 +164,7 @@ dare = client.Dare
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Dare.load({ "id" => "dare_id" })
+result = client.Dare.load()
 ```
 
 ### Common Methods

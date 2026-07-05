@@ -101,10 +101,10 @@ beverage := client.Beverage(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | ``$INTEGER`` | Yes |  |
-| `creator` | ``$STRING`` | Yes |  |
-| `result` | ``$OBJECT`` | Yes |  |
-| `status` | ``$BOOLEAN`` | Yes |  |
+| `code` | `int` | Yes |  |
+| `creator` | `string` | Yes |  |
+| `result` | `map[string]any` | Yes |  |
+| `status` | `bool` | Yes |  |
 
 ### Operations
 
@@ -113,7 +113,7 @@ beverage := client.Beverage(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Beverage(nil).Load(map[string]any{"id": "beverage_id"}, nil)
+result, err := client.Beverage(nil).Load(nil, nil)
 ```
 
 ### Common Methods
@@ -150,10 +150,10 @@ dare := client.Dare(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | ``$INTEGER`` | Yes |  |
-| `creator` | ``$STRING`` | Yes |  |
-| `result` | ``$STRING`` | Yes |  |
-| `status` | ``$BOOLEAN`` | Yes |  |
+| `code` | `int` | Yes |  |
+| `creator` | `string` | Yes |  |
+| `result` | `string` | Yes |  |
+| `status` | `bool` | Yes |  |
 
 ### Operations
 
@@ -162,7 +162,7 @@ dare := client.Dare(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Dare(nil).Load(map[string]any{"id": "dare_id"}, nil)
+result, err := client.Dare(nil).Load(nil, nil)
 ```
 
 ### Common Methods

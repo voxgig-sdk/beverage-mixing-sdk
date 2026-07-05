@@ -94,10 +94,10 @@ local beverage = client:Beverage(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | ``$INTEGER`` | Yes |  |
-| `creator` | ``$STRING`` | Yes |  |
-| `result` | ``$OBJECT`` | Yes |  |
-| `status` | ``$BOOLEAN`` | Yes |  |
+| `code` | `number` | Yes |  |
+| `creator` | `string` | Yes |  |
+| `result` | `table` | Yes |  |
+| `status` | `boolean` | Yes |  |
 
 ### Operations
 
@@ -106,7 +106,7 @@ local beverage = client:Beverage(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Beverage():load({ id = "beverage_id" })
+local result, err = client:Beverage():load()
 ```
 
 ### Common Methods
@@ -149,10 +149,10 @@ local dare = client:Dare(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | ``$INTEGER`` | Yes |  |
-| `creator` | ``$STRING`` | Yes |  |
-| `result` | ``$STRING`` | Yes |  |
-| `status` | ``$BOOLEAN`` | Yes |  |
+| `code` | `number` | Yes |  |
+| `creator` | `string` | Yes |  |
+| `result` | `string` | Yes |  |
+| `status` | `boolean` | Yes |  |
 
 ### Operations
 
@@ -161,7 +161,7 @@ local dare = client:Dare(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Dare():load({ id = "dare_id" })
+local result, err = client:Dare():load()
 ```
 
 ### Common Methods

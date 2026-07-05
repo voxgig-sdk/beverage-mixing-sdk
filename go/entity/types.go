@@ -16,8 +16,7 @@ type Beverage struct {
 	Status bool `json:"status"`
 }
 
-// BeverageLoadMatch mirrors the beverage fields as an all-optional match
-// filter (Go analog of Partial<Beverage>).
+// BeverageLoadMatch is the typed request payload for Beverage.LoadTyped.
 type BeverageLoadMatch struct {
 	Code *int `json:"code,omitempty"`
 	Creator *string `json:"creator,omitempty"`
@@ -33,8 +32,7 @@ type Dare struct {
 	Status bool `json:"status"`
 }
 
-// DareLoadMatch mirrors the dare fields as an all-optional match
-// filter (Go analog of Partial<Dare>).
+// DareLoadMatch is the typed request payload for Dare.LoadTyped.
 type DareLoadMatch struct {
 	Code *int `json:"code,omitempty"`
 	Creator *string `json:"creator,omitempty"`

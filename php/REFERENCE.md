@@ -8,7 +8,7 @@ Complete API reference for the BeverageMixing PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/beverage-mixing_sdk.php';
+require_once __DIR__ . '/beveragemixing_sdk.php';
 
 $client = new BeverageMixingSDK($options);
 ```
@@ -49,11 +49,11 @@ Create a new `BeverageEntity` instance. Pass `null` for no initial data.
 
 Create a new `DareEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): BeverageMixingUtility`
 
 Return a copy of the SDK utility object.
 
@@ -96,10 +96,10 @@ $beverage = $client->Beverage();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | ``$INTEGER`` | Yes |  |
-| `creator` | ``$STRING`` | Yes |  |
-| `result` | ``$OBJECT`` | Yes |  |
-| `status` | ``$BOOLEAN`` | Yes |  |
+| `code` | `int` | Yes |  |
+| `creator` | `string` | Yes |  |
+| `result` | `array` | Yes |  |
+| `status` | `bool` | Yes |  |
 
 ### Operations
 
@@ -108,24 +108,24 @@ $beverage = $client->Beverage();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Beverage()->load(["id" => "beverage_id"]);
+$result = $client->Beverage()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -134,7 +134,7 @@ Set the entity match criteria.
 Create a new `BeverageEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -151,10 +151,10 @@ $dare = $client->Dare();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | ``$INTEGER`` | Yes |  |
-| `creator` | ``$STRING`` | Yes |  |
-| `result` | ``$STRING`` | Yes |  |
-| `status` | ``$BOOLEAN`` | Yes |  |
+| `code` | `int` | Yes |  |
+| `creator` | `string` | Yes |  |
+| `result` | `string` | Yes |  |
+| `status` | `bool` | Yes |  |
 
 ### Operations
 
@@ -163,24 +163,24 @@ $dare = $client->Dare();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Dare()->load(["id" => "dare_id"]);
+$result = $client->Dare()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -189,7 +189,7 @@ Set the entity match criteria.
 Create a new `DareEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
