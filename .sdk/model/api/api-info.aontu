@@ -16,9 +16,9 @@ main: {
           url: "https://abhi-api.vercel.app"
         }
       ]
+      summary: "This API provides recommendations for mixing various beverages with specific ingredients."
       title: "Beverage Mixing API"
       version: "1.0.0"
+      website: "https://abhi-api.vercel.app"
     }
   }
-}
-

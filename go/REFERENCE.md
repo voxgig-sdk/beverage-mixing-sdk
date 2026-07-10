@@ -95,6 +95,7 @@ same parameters as `Direct()`.
 
 ```go
 beverage := client.Beverage(nil)
+fmt.Println(beverage.GetName()) // "beverage"
 ```
 
 ### Fields
@@ -114,6 +115,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Beverage(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -144,6 +149,7 @@ Return the entity name.
 
 ```go
 dare := client.Dare(nil)
+fmt.Println(dare.GetName()) // "dare"
 ```
 
 ### Fields
@@ -163,6 +169,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Dare(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
