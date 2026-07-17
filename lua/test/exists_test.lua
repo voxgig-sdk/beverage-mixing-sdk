@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- BeverageMixing SDK exists test
 
 local sdk = require("beverage-mixing_sdk")
 

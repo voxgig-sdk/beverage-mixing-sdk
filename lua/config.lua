@@ -1,4 +1,4 @@
--- ProjectName SDK configuration
+-- BeverageMixing SDK configuration
 
 local function make_config()
   return {
