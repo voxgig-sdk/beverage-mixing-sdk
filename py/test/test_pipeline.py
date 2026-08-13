@@ -16,11 +16,11 @@
 import pytest
 
 from beveragemixing_sdk import BeverageMixingSDK
-from core.error import BeverageMixingError
-from core.result import BeverageMixingResult
-from core.response import BeverageMixingResponse
-from core.spec import BeverageMixingSpec
-from feature.base_feature import BeverageMixingBaseFeature
+from beveragemixing_sdk.core.error import BeverageMixingError
+from beveragemixing_sdk.core.result import BeverageMixingResult
+from beveragemixing_sdk.core.response import BeverageMixingResponse
+from beveragemixing_sdk.core.spec import BeverageMixingSpec
+from beveragemixing_sdk.feature.base_feature import BeverageMixingBaseFeature
 
 
 def _client():

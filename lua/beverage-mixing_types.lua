@@ -7,16 +7,14 @@
 -- edit by hand.
 
 ---@class Beverage
----@field code number
----@field creator string
----@field result table
----@field status boolean
+---@field difficulty? string
+---@field ingredients? table
+---@field recommendation? string
 
 ---@class BeverageLoadMatch
----@field code? number
----@field creator? string
----@field result? table
----@field status? boolean
+---@field difficulty? string
+---@field ingredients? table
+---@field recommendation? string
 
 ---@class Dare
 ---@field code number

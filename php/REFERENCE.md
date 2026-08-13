@@ -96,10 +96,9 @@ $beverage = $client->Beverage();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | `int` | Yes |  |
-| `creator` | `string` | Yes |  |
-| `result` | `array` | Yes |  |
-| `status` | `bool` | Yes |  |
+| `difficulty` | `string` | No |  |
+| `ingredients` | `array` | No |  |
+| `recommendation` | `string` | No |  |
 
 ### Operations
 

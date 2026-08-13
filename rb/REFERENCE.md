@@ -97,10 +97,9 @@ beverage = client.Beverage
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | `Integer` | Yes |  |
-| `creator` | `String` | Yes |  |
-| `result` | `Hash` | Yes |  |
-| `status` | `Boolean` | Yes |  |
+| `difficulty` | `String` | No |  |
+| `ingredients` | `Array` | No |  |
+| `recommendation` | `String` | No |  |
 
 ### Operations
 

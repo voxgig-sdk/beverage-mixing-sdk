@@ -102,10 +102,9 @@ fmt.Println(beverage.GetName()) // "beverage"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | `int` | Yes |  |
-| `creator` | `string` | Yes |  |
-| `result` | `map[string]any` | Yes |  |
-| `status` | `bool` | Yes |  |
+| `difficulty` | `string` | No |  |
+| `ingredients` | `[]any` | No |  |
+| `recommendation` | `string` | No |  |
 
 ### Operations
 

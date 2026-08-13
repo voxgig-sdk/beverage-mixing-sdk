@@ -15,19 +15,17 @@ declare(strict_types=1);
 /** Beverage entity data model. */
 class Beverage
 {
-    public int $code;
-    public string $creator;
-    public array $result;
-    public bool $status;
+    public ?string $difficulty = null;
+    public ?array $ingredients = null;
+    public ?string $recommendation = null;
 }
 
 /** Request payload for Beverage#load. */
 class BeverageLoadMatch
 {
-    public ?int $code = null;
-    public ?string $creator = null;
-    public ?array $result = null;
-    public ?bool $status = null;
+    public ?string $difficulty = null;
+    public ?array $ingredients = null;
+    public ?string $recommendation = null;
 }
 
 /** Dare entity data model. */

@@ -6,24 +6,19 @@ main: kit: entity: beverage: {
 
   fields: [
     {
-      name: "code"
-      req: true
-      type: "`$INTEGER`"
-    }
-    {
-      name: "creator"
-      req: true
+      name: "difficulty"
+      req: false
       type: "`$STRING`"
     }
     {
-      name: "result"
-      req: true
-      type: "`$OBJECT`"
+      name: "ingredients"
+      req: false
+      type: "`$ARRAY`"
     }
     {
-      name: "status"
-      req: true
-      type: "`$BOOLEAN`"
+      name: "recommendation"
+      req: false
+      type: "`$STRING`"
     }
   ]
 
@@ -69,7 +64,7 @@ main: kit: entity: beverage: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.result`"
           }
         }
       ]

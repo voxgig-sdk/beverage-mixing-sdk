@@ -226,10 +226,9 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `code` |  |
-| `creator` |  |
-| `result` |  |
-| `status` |  |
+| `difficulty` |  |
+| `ingredients` |  |
+| `recommendation` |  |
 
 Operations: Load.
 
@@ -267,10 +266,9 @@ Create an instance: `local beverage = client:Beverage(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `code` | `number` |  |
-| `creator` | `string` |  |
-| `result` | `table` |  |
-| `status` | `boolean` |  |
+| `difficulty` | `string` |  |
+| `ingredients` | `table` |  |
+| `recommendation` | `string` |  |
 
 #### Example: Load
 

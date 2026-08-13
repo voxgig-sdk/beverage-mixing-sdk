@@ -33,31 +33,24 @@ class BeverageMixingConfig
           'fields' => [
             [
               'active' => true,
-              'name' => 'code',
-              'req' => true,
-              'type' => '`$INTEGER`',
+              'name' => 'difficulty',
+              'req' => false,
+              'type' => '`$STRING`',
               'index$' => 0,
             ],
             [
               'active' => true,
-              'name' => 'creator',
-              'req' => true,
-              'type' => '`$STRING`',
+              'name' => 'ingredients',
+              'req' => false,
+              'type' => '`$ARRAY`',
               'index$' => 1,
             ],
             [
               'active' => true,
-              'name' => 'result',
-              'req' => true,
-              'type' => '`$OBJECT`',
+              'name' => 'recommendation',
+              'req' => false,
+              'type' => '`$STRING`',
               'index$' => 2,
-            ],
-            [
-              'active' => true,
-              'name' => 'status',
-              'req' => true,
-              'type' => '`$BOOLEAN`',
-              'index$' => 3,
             ],
           ],
           'name' => 'beverage',
@@ -90,6 +83,7 @@ class BeverageMixingConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/api/beverage/mix',
                   'parts' => [
@@ -106,7 +100,7 @@ class BeverageMixingConfig
                   ],
                   'transform' => [
                     'req' => '`reqdata`',
-                    'res' => '`body`',
+                    'res' => '`body.result`',
                   ],
                   'index$' => 0,
                 ],
@@ -158,6 +152,7 @@ class BeverageMixingConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/api/game/dare',
                   'parts' => [

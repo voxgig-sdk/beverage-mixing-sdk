@@ -94,10 +94,9 @@ local beverage = client:Beverage(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | `number` | Yes |  |
-| `creator` | `string` | Yes |  |
-| `result` | `table` | Yes |  |
-| `status` | `boolean` | Yes |  |
+| `difficulty` | `string` | No |  |
+| `ingredients` | `table` | No |  |
+| `recommendation` | `string` | No |  |
 
 ### Operations
 

@@ -26,8 +26,8 @@ import {
 describe('DareEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when BEVERAGEMIXING_TEST_LIVE=TRUE.
-  afterEach(liveDelay('BEVERAGEMIXING_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when BEVERAGE_MIXING_TEST_LIVE=TRUE.
+  afterEach(liveDelay('BEVERAGE_MIXING_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = BeverageMixingSDK.test()
@@ -62,7 +62,7 @@ describe('DareEntity', async () => {
     // LOAD
     const dare_ref01_ent = client.Dare()
     const dare_ref01_match_dt0: any = {}
-    const dare_ref01_data_dt0 = await dare_ref01_ent.load(dare_ref01_match_dt0)
+    const dare_ref01_data_dt0 = (await dare_ref01_ent.load(dare_ref01_match_dt0)).data()
     assert(null != dare_ref01_data_dt0)
 
 

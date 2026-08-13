@@ -23,8 +23,8 @@ module BeverageMixingTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("BEVERAGEMIXING_TEST_LIVE")
-    override = getenv("BEVERAGEMIXING_TEST_OVERRIDE")
+    live = getenv("BEVERAGE_MIXING_TEST_LIVE")
+    override = getenv("BEVERAGE_MIXING_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module BeverageMixingTestRunner
       end
     end
 
-    explain = getenv("BEVERAGEMIXING_TEST_EXPLAIN")
-    m["BEVERAGEMIXING_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("BEVERAGE_MIXING_TEST_EXPLAIN")
+    m["BEVERAGE_MIXING_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

@@ -10,43 +10,35 @@
 
 # Beverage entity data model.
 #
-# @!attribute [rw] code
-#   @return [Integer]
+# @!attribute [rw] difficulty
+#   @return [String, nil]
 #
-# @!attribute [rw] creator
-#   @return [String]
+# @!attribute [rw] ingredients
+#   @return [Array, nil]
 #
-# @!attribute [rw] result
-#   @return [Hash]
-#
-# @!attribute [rw] status
-#   @return [Boolean]
+# @!attribute [rw] recommendation
+#   @return [String, nil]
 Beverage = Struct.new(
-  :code,
-  :creator,
-  :result,
-  :status,
+  :difficulty,
+  :ingredients,
+  :recommendation,
   keyword_init: true
 )
 
 # Request payload for Beverage#load.
 #
-# @!attribute [rw] code
-#   @return [Integer, nil]
-#
-# @!attribute [rw] creator
+# @!attribute [rw] difficulty
 #   @return [String, nil]
 #
-# @!attribute [rw] result
-#   @return [Hash, nil]
+# @!attribute [rw] ingredients
+#   @return [Array, nil]
 #
-# @!attribute [rw] status
-#   @return [Boolean, nil]
+# @!attribute [rw] recommendation
+#   @return [String, nil]
 BeverageLoadMatch = Struct.new(
-  :code,
-  :creator,
-  :result,
-  :status,
+  :difficulty,
+  :ingredients,
+  :recommendation,
   keyword_init: true
 )
 

@@ -62,8 +62,8 @@ function makeCtrl(explain: boolean) {
 // Overrides configuration values with environment variables if available
 function envOverride(m: Record<string, any>) {
   if (
-    'TRUE' === process.env.BEVERAGEMIXING_TEST_LIVE ||
-    'TRUE' === process.env.BEVERAGEMIXING_TEST_OVERRIDE
+    'TRUE' === process.env.BEVERAGE_MIXING_TEST_LIVE ||
+    'TRUE' === process.env.BEVERAGE_MIXING_TEST_OVERRIDE
   ) {
     Object.entries(m).map(n => {
       let envval = process.env[n[0]]
@@ -74,7 +74,7 @@ function envOverride(m: Record<string, any>) {
     })
   }
 
-  m.BEVERAGEMIXING_TEST_EXPLAIN = process.env.BEVERAGEMIXING_TEST_EXPLAIN || m.BEVERAGEMIXING_TEST_EXPLAIN
+  m.BEVERAGE_MIXING_TEST_EXPLAIN = process.env.BEVERAGE_MIXING_TEST_EXPLAIN || m.BEVERAGE_MIXING_TEST_EXPLAIN
 
   return m
 }

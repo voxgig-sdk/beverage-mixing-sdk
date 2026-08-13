@@ -128,10 +128,29 @@ const beverage = client.Beverage()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | `number` | Yes |  |
-| `creator` | `string` | Yes |  |
-| `result` | `Record<string, any>` | Yes |  |
-| `status` | `boolean` | Yes |  |
+| `difficulty` | `string` | No |  |
+| `ingredients` | `any[]` | No |  |
+| `recommendation` | `string` | No |  |
+
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `mix` | `/api/beverage/mix` | `client.Beverage().load({ $action: 'mix', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+Beverage record — check the API definition for its shape.
+
+```ts
+const result = await client.Beverage().load({
+  $action: 'mix',
+  /* ...the action's own arguments */
+})
+```
 
 ### Operations
 

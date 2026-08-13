@@ -34,7 +34,7 @@ client = BeverageMixingSDK.new
 
 ```ruby
 begin
-  # load returns the bare Beverage record (raises on error).
+  # load returns the ENTITY — call data_get for the Beverage record (raises on error).
   beverage = client.Beverage.load()
   puts beverage
 rescue => err
@@ -117,7 +117,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = BeverageMixingSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 beverage = client.Beverage.load()
 puts beverage
 ```
@@ -235,10 +236,9 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `code` |  |
-| `creator` |  |
-| `result` |  |
-| `status` |  |
+| `difficulty` |  |
+| `ingredients` |  |
+| `recommendation` |  |
 
 Operations: Load.
 
@@ -276,15 +276,14 @@ Create an instance: `beverage = client.Beverage`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `code` | `Integer` |  |
-| `creator` | `String` |  |
-| `result` | `Hash` |  |
-| `status` | `Boolean` |  |
+| `difficulty` | `String` |  |
+| `ingredients` | `Array` |  |
+| `recommendation` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Beverage record (raises on error).
+# load returns the ENTITY — call data_get for the Beverage record (raises on error).
 beverage = client.Beverage.load()
 ```
 
@@ -311,7 +310,7 @@ Create an instance: `dare = client.Dare`
 #### Example: Load
 
 ```ruby
-# load returns the bare Dare record (raises on error).
+# load returns the ENTITY — call data_get for the Dare record (raises on error).
 dare = client.Dare.load()
 ```
 

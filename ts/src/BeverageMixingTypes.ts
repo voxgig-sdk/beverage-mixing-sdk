@@ -6,17 +6,21 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface Beverage {
-  code: number
-  creator: string
-  result: Record<string, any>
-  status: boolean
+  difficulty?: string
+  ingredients?: any[]
+  recommendation?: string
 }
 
 export interface BeverageLoadMatch {
-  code?: number
-  creator?: string
-  result?: Record<string, any>
-  status?: boolean
+  difficulty?: string
+  ingredients?: any[]
+  recommendation?: string
+
+  // Selects a custom action instead of the plain load:
+  //   'mix'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface Dare {

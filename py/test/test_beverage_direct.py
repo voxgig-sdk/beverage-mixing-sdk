@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from beveragemixing_sdk.utility.voxgig_struct import voxgig_struct as vs
 from beveragemixing_sdk import BeverageMixingSDK
-from core import helpers
+from beveragemixing_sdk.core import helpers
 from test import runner
 
 
@@ -56,11 +56,11 @@ def _beverage_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "BEVERAGEMIXING_TEST_BEVERAGE_ENTID": {},
-        "BEVERAGEMIXING_TEST_LIVE": "FALSE",
+        "BEVERAGE_MIXING_TEST_BEVERAGE_ENTID": {},
+        "BEVERAGE_MIXING_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("BEVERAGEMIXING_TEST_LIVE") == "TRUE"
+    live = env.get("BEVERAGE_MIXING_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

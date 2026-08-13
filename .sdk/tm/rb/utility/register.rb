@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ BeverageMixingUtility.registrar = ->(u) {
   u.prepare_params = BeverageMixingUtilities::PrepareParams
   u.prepare_path = BeverageMixingUtilities::PreparePath
   u.prepare_query = BeverageMixingUtilities::PrepareQuery
+  u.graphql_body = BeverageMixingUtilities::GraphqlBody
+  u.graphql_errors = BeverageMixingUtilities::GraphqlErrors
   u.result_basic = BeverageMixingUtilities::ResultBasic
   u.result_body = BeverageMixingUtilities::ResultBody
   u.result_headers = BeverageMixingUtilities::ResultHeaders

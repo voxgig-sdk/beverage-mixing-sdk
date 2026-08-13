@@ -43,8 +43,8 @@ class BeverageMixingTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('BEVERAGEMIXING_TEST_LIVE');
-        $override = self::getenv('BEVERAGEMIXING_TEST_OVERRIDE');
+        $live = self::getenv('BEVERAGE_MIXING_TEST_LIVE');
+        $override = self::getenv('BEVERAGE_MIXING_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class BeverageMixingTestRunner
             }
         }
 
-        $explain = self::getenv('BEVERAGEMIXING_TEST_EXPLAIN');
+        $explain = self::getenv('BEVERAGE_MIXING_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['BEVERAGEMIXING_TEST_EXPLAIN'] = $explain;
+            $m['BEVERAGE_MIXING_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

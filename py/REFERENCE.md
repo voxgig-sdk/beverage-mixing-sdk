@@ -91,10 +91,9 @@ beverage = client.Beverage()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | `int` | Yes |  |
-| `creator` | `str` | Yes |  |
-| `result` | `dict` | Yes |  |
-| `status` | `bool` | Yes |  |
+| `difficulty` | `str` | No |  |
+| `ingredients` | `list` | No |  |
+| `recommendation` | `str` | No |  |
 
 ### Operations
 

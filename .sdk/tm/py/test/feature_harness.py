@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import BeverageMixingControl
-from core.error import BeverageMixingError
-from core.result import BeverageMixingResult
-from core.spec import BeverageMixingSpec
+from projectname_sdk.config import make_config
+from projectname_sdk.features import _make_feature
+from projectname_sdk.core.control import BeverageMixingControl
+from projectname_sdk.core.error import BeverageMixingError
+from projectname_sdk.core.result import BeverageMixingResult
+from projectname_sdk.core.spec import BeverageMixingSpec
 
 
 # True when this SDK was generated with the named feature.

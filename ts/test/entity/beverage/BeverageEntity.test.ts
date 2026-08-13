@@ -26,8 +26,8 @@ import {
 describe('BeverageEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when BEVERAGEMIXING_TEST_LIVE=TRUE.
-  afterEach(liveDelay('BEVERAGEMIXING_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when BEVERAGE_MIXING_TEST_LIVE=TRUE.
+  afterEach(liveDelay('BEVERAGE_MIXING_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = BeverageMixingSDK.test()
@@ -62,7 +62,7 @@ describe('BeverageEntity', async () => {
     // LOAD
     const beverage_ref01_ent = client.Beverage()
     const beverage_ref01_match_dt0: any = {}
-    const beverage_ref01_data_dt0 = await beverage_ref01_ent.load(beverage_ref01_match_dt0)
+    const beverage_ref01_data_dt0 = (await beverage_ref01_ent.load(beverage_ref01_match_dt0)).data()
     assert(null != beverage_ref01_data_dt0)
 
 

@@ -65,11 +65,11 @@ function beverage_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "BEVERAGEMIXING_TEST_BEVERAGE_ENTID" => [],
-        "BEVERAGEMIXING_TEST_LIVE" => "FALSE",
+        "BEVERAGE_MIXING_TEST_BEVERAGE_ENTID" => [],
+        "BEVERAGE_MIXING_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["BEVERAGEMIXING_TEST_LIVE"] === "TRUE";
+    $live = $env["BEVERAGE_MIXING_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

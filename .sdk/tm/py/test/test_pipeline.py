@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import BeverageMixingSDK
-from core.error import BeverageMixingError
-from core.result import BeverageMixingResult
-from core.response import BeverageMixingResponse
-from core.spec import BeverageMixingSpec
-from feature.base_feature import BeverageMixingBaseFeature
+from projectname_sdk.core.error import BeverageMixingError
+from projectname_sdk.core.result import BeverageMixingResult
+from projectname_sdk.core.response import BeverageMixingResponse
+from projectname_sdk.core.spec import BeverageMixingSpec
+from projectname_sdk.feature.base_feature import BeverageMixingBaseFeature
 
 
 def _client():

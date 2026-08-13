@@ -35,7 +35,7 @@ $client = new BeverageMixingSDK();
 
 ```php
 try {
-    // load() returns the bare Beverage record (throws on error).
+    // load() returns the ENTITY — call data_get() for the Beverage record (throws on error).
     $beverage = $client->Beverage()->load();
     print_r($beverage);
 } catch (\Throwable $err) {
@@ -123,7 +123,8 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = BeverageMixingSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $beverage = $client->Beverage()->load();
 print_r($beverage);
 ```
@@ -223,7 +224,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -245,10 +246,9 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `code` |  |
-| `creator` |  |
-| `result` |  |
-| `status` |  |
+| `difficulty` |  |
+| `ingredients` |  |
+| `recommendation` |  |
 
 Operations: Load.
 
@@ -286,15 +286,14 @@ Create an instance: `$beverage = $client->Beverage();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `code` | `int` |  |
-| `creator` | `string` |  |
-| `result` | `array` |  |
-| `status` | `bool` |  |
+| `difficulty` | `string` |  |
+| `ingredients` | `array` |  |
+| `recommendation` | `string` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Beverage record (throws on error).
+// load() returns the ENTITY — call data_get() for the Beverage record (throws on error).
 $beverage = $client->Beverage()->load();
 ```
 
@@ -321,7 +320,7 @@ Create an instance: `$dare = $client->Dare();`
 #### Example: Load
 
 ```php
-// load() returns the bare Dare record (throws on error).
+// load() returns the ENTITY — call data_get() for the Dare record (throws on error).
 $dare = $client->Dare()->load();
 ```
 

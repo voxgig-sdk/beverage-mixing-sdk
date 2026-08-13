@@ -2,24 +2,21 @@
   "existing": {
     "beverage": {
       "BEVERAGE00": {
-        "code": "s28",
-        "creator": "s29",
-        "result": {},
-        "status": false,
+        "difficulty": "s1e",
+        "ingredients": [],
+        "recommendation": "s20",
         "id": "BEVERAGE00"
       },
       "BEVERAGE01": {
-        "code": "s50",
-        "creator": "s51",
-        "result": {},
-        "status": false,
+        "difficulty": "s3c",
+        "ingredients": [],
+        "recommendation": "s3e",
         "id": "BEVERAGE01"
       },
       "BEVERAGE02": {
-        "code": "s78",
-        "creator": "s79",
-        "result": {},
-        "status": false,
+        "difficulty": "s5a",
+        "ingredients": [],
+        "recommendation": "s5c",
         "id": "BEVERAGE02"
       }
     }
@@ -27,10 +24,9 @@
   "new": {
     "beverage": {
       "beverage_ref01": {
-        "code": "sa0",
-        "creator": "sa1",
-        "result": {},
-        "status": false
+        "difficulty": "s78",
+        "ingredients": [],
+        "recommendation": "s7a"
       }
     }
   }

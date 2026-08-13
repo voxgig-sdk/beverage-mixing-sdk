@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# BeverageMixing SDK exists test
 
 import pytest
 from beveragemixing_sdk import BeverageMixingSDK

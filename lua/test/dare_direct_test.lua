@@ -60,11 +60,11 @@ function dare_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["BEVERAGEMIXING_TEST_DARE_ENTID"] = {},
-    ["BEVERAGEMIXING_TEST_LIVE"] = "FALSE",
+    ["BEVERAGE_MIXING_TEST_DARE_ENTID"] = {},
+    ["BEVERAGE_MIXING_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["BEVERAGEMIXING_TEST_LIVE"] == "TRUE"
+  local live = env["BEVERAGE_MIXING_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

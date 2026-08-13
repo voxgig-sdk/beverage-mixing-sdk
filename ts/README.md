@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = BeverageMixingSDK.test()
 
 const beverage = await client.Beverage().load()
-// beverage is a bare entity populated with mock response data
+// beverage is the entity, populated with mock response data
+// — call beverage.data() for the record itself
 console.log(beverage)
 ```
 
@@ -285,10 +286,9 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `code` |  |
-| `creator` |  |
-| `result` |  |
-| `status` |  |
+| `difficulty` |  |
+| `ingredients` |  |
+| `recommendation` |  |
 
 Operations: load.
 
@@ -326,10 +326,9 @@ Create an instance: `const beverage = client.Beverage()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `code` | `number` |  |
-| `creator` | `string` |  |
-| `result` | `Record<string, any>` |  |
-| `status` | `boolean` |  |
+| `difficulty` | `string` |  |
+| `ingredients` | `any[]` |  |
+| `recommendation` | `string` |  |
 
 #### Example: Load
 

@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = BeverageMixingSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = BeverageMixingSDK.test({
+  entity: {
+    beverage: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const beverage = await client.Beverage().load()
-// beverage is a bare Beverage populated with mock data
+// beverage is the Beverage entity, populated with mock data
+// — call beverage.data() for the record itself
 console.log(beverage)
 ```
 
@@ -183,7 +192,7 @@ require_once 'beveragemixing_sdk.php';
 $client = new BeverageMixingSDK();
 
 
-// Load a specific beverage (returns the bare record; throws on error)
+// Load a specific beverage (returns the ENTITY; call data_get() for the record; throws on error)
 $beverage = $client->Beverage()->load();
 print_r($beverage);
 ```
@@ -211,7 +220,7 @@ require_relative "BeverageMixing_sdk"
 client = BeverageMixingSDK.new
 
 
-# Load a specific beverage (returns the bare record; raises on error)
+# Load a specific beverage (returns the ENTITY; call data_get for the record)
 beverage = client.Beverage.load()
 puts beverage
 ```
@@ -345,6 +354,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://abhi-api.vercel.app](https://abhi-api.vercel.app)
 

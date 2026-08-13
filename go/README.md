@@ -259,10 +259,9 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"code"` |  |
-| `"creator"` |  |
-| `"result"` |  |
-| `"status"` |  |
+| `"difficulty"` |  |
+| `"ingredients"` |  |
+| `"recommendation"` |  |
 
 Operations: Load.
 
@@ -300,10 +299,9 @@ Create an instance: `beverage := client.Beverage(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `code` | `int` |  |
-| `creator` | `string` |  |
-| `result` | `map[string]any` |  |
-| `status` | `bool` |  |
+| `difficulty` | `string` |  |
+| `ingredients` | `[]any` |  |
+| `recommendation` | `string` |  |
 
 #### Example: Load
 
