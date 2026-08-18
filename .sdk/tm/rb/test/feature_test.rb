@@ -15,7 +15,7 @@ require_relative "../BeverageMixing_sdk"
 module BeverageMixingFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = BeverageMixingConfig.make_config["feature"]
+    f = BeverageMixingConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

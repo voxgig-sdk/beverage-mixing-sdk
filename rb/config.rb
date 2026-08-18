@@ -1,6 +1,20 @@
 # BeverageMixing SDK configuration
 
 module BeverageMixingConfig
+  # Return the process-wide config, built once on first use. The SDK reads
+  # the config on every request and never writes to it, so one instance is
+  # shared by every client rather than rebuilt per client.
+  #
+  # The returned hash is shared: treat it as read-only. Callers that need to
+  # mutate should use make_config, which always returns a fresh copy.
+  def self.shared_config
+    @shared_config ||= make_config
+  end
+
+
+  # Build a fresh, fully materialised config hash. Every call rebuilds the
+  # whole structure, so prefer shared_config unless you need a private copy
+  # you intend to mutate.
   def self.make_config
     {
       "main" => {
@@ -27,25 +41,16 @@ module BeverageMixingConfig
         "beverage" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "difficulty",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "ingredients",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "recommendation",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
           ],
           "name" => "beverage",
@@ -55,25 +60,20 @@ module BeverageMixingConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "query" => [
                       {
-                        "active" => true,
                         "example" => "coffee",
                         "kind" => "query",
                         "name" => "beverage",
                         "orig" => "beverage",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "example" => "milk",
                         "kind" => "query",
                         "name" => "ingredient",
                         "orig" => "ingredient",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                     ],
@@ -97,10 +97,8 @@ module BeverageMixingConfig
                     "req" => "`reqdata`",
                     "res" => "`body.result`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -110,32 +108,24 @@ module BeverageMixingConfig
         "dare" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "code",
               "req" => true,
               "type" => "`$INTEGER`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "creator",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "result",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "status",
               "req" => true,
               "type" => "`$BOOLEAN`",
-              "index$" => 3,
             },
           ],
           "name" => "dare",
@@ -145,7 +135,6 @@ module BeverageMixingConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
@@ -160,10 +149,8 @@ module BeverageMixingConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {

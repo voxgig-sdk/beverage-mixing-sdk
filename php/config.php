@@ -5,6 +5,29 @@ declare(strict_types=1);
 
 class BeverageMixingConfig
 {
+    /** @var array<string,mixed>|null */
+    private static ?array $shared_config = null;
+
+    /**
+     * Return the process-wide config, built once on first use. The SDK reads
+     * the config on every request and never writes to it, so one instance is
+     * shared by every client rather than rebuilt per client.
+     *
+     * PHP arrays are copy-on-write, so callers that do mutate the result get
+     * their own copy and cannot disturb the shared one.
+     */
+    public static function shared_config(): array
+    {
+        if (self::$shared_config === null) {
+            self::$shared_config = self::make_config();
+        }
+        return self::$shared_config;
+    }
+
+    /**
+     * Build a fresh, fully materialised config array. Every call rebuilds the
+     * whole structure, so prefer shared_config unless you need a private copy.
+     */
     public static function make_config(): array
     {
         return [
@@ -32,25 +55,16 @@ class BeverageMixingConfig
         'beverage' => [
           'fields' => [
             [
-              'active' => true,
               'name' => 'difficulty',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 0,
             ],
             [
-              'active' => true,
               'name' => 'ingredients',
-              'req' => false,
               'type' => '`$ARRAY`',
-              'index$' => 1,
             ],
             [
-              'active' => true,
               'name' => 'recommendation',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 2,
             ],
           ],
           'name' => 'beverage',
@@ -60,25 +74,20 @@ class BeverageMixingConfig
               'name' => 'load',
               'points' => [
                 [
-                  'active' => true,
                   'args' => [
                     'query' => [
                       [
-                        'active' => true,
                         'example' => 'coffee',
                         'kind' => 'query',
                         'name' => 'beverage',
                         'orig' => 'beverage',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'example' => 'milk',
                         'kind' => 'query',
                         'name' => 'ingredient',
                         'orig' => 'ingredient',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                     ],
@@ -102,10 +111,8 @@ class BeverageMixingConfig
                     'req' => '`reqdata`',
                     'res' => '`body.result`',
                   ],
-                  'index$' => 0,
                 ],
               ],
-              'key$' => 'load',
             ],
           ],
           'relations' => [
@@ -115,32 +122,24 @@ class BeverageMixingConfig
         'dare' => [
           'fields' => [
             [
-              'active' => true,
               'name' => 'code',
               'req' => true,
               'type' => '`$INTEGER`',
-              'index$' => 0,
             ],
             [
-              'active' => true,
               'name' => 'creator',
               'req' => true,
               'type' => '`$STRING`',
-              'index$' => 1,
             ],
             [
-              'active' => true,
               'name' => 'result',
               'req' => true,
               'type' => '`$STRING`',
-              'index$' => 2,
             ],
             [
-              'active' => true,
               'name' => 'status',
               'req' => true,
               'type' => '`$BOOLEAN`',
-              'index$' => 3,
             ],
           ],
           'name' => 'dare',
@@ -150,7 +149,6 @@ class BeverageMixingConfig
               'name' => 'load',
               'points' => [
                 [
-                  'active' => true,
                   'args' => [],
                   'kind' => 'http',
                   'method' => 'GET',
@@ -165,10 +163,8 @@ class BeverageMixingConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'index$' => 0,
                 ],
               ],
-              'key$' => 'load',
             ],
           ],
           'relations' => [

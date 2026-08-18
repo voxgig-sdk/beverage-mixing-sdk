@@ -36,7 +36,7 @@ class Config {
 
 
   options = {
-    base: 'https://abhi-api.vercel.app',
+    base: "https://abhi-api.vercel.app",
 
     headers: {
       "content-type": "application/json"
@@ -58,25 +58,16 @@ class Config {
     "beverage": {
       "fields": [
         {
-          "active": true,
           "name": "difficulty",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 0
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "ingredients",
-          "req": false,
-          "type": "`$ARRAY`",
-          "index$": 1
+          "type": "`$ARRAY`"
         },
         {
-          "active": true,
           "name": "recommendation",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 2
+          "type": "`$STRING`"
         }
       ],
       "name": "beverage",
@@ -86,25 +77,20 @@ class Config {
           "name": "load",
           "points": [
             {
-              "active": true,
               "args": {
                 "query": [
                   {
-                    "active": true,
                     "example": "coffee",
                     "kind": "query",
                     "name": "beverage",
                     "orig": "beverage",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": "milk",
                     "kind": "query",
                     "name": "ingredient",
                     "orig": "ingredient",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -127,11 +113,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.result`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "load"
+          ]
         }
       },
       "relations": {
@@ -141,32 +125,24 @@ class Config {
     "dare": {
       "fields": [
         {
-          "active": true,
           "name": "code",
           "req": true,
-          "type": "`$INTEGER`",
-          "index$": 0
+          "type": "`$INTEGER`"
         },
         {
-          "active": true,
           "name": "creator",
           "req": true,
-          "type": "`$STRING`",
-          "index$": 1
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "result",
           "req": true,
-          "type": "`$STRING`",
-          "index$": 2
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "status",
           "req": true,
-          "type": "`$BOOLEAN`",
-          "index$": 3
+          "type": "`$BOOLEAN`"
         }
       ],
       "name": "dare",
@@ -176,7 +152,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "active": true,
               "args": {},
               "kind": "http",
               "method": "GET",
@@ -190,11 +165,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "load"
+          ]
         }
       },
       "relations": {

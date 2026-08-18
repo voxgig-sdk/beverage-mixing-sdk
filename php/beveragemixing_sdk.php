@@ -40,7 +40,7 @@ class BeverageMixingSDK
         $utility = new BeverageMixingUtility();
         $this->_utility = $utility;
 
-        $config = BeverageMixingConfig::make_config();
+        $config = BeverageMixingConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

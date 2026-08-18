@@ -28,7 +28,7 @@ class BeverageMixingSDK
     utility = BeverageMixingUtility.new
     @_utility = utility
 
-    config = BeverageMixingConfig.make_config
+    config = BeverageMixingConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
