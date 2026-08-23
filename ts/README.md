@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -286,9 +286,9 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `difficulty` |  |
-| `ingredients` |  |
-| `recommendation` |  |
+| `difficulty` | Difficulty level of preparing the mix |
+| `ingredients` | List of ingredients in the mix |
+| `recommendation` | Detailed mixing recommendation |
 
 Operations: load.
 
@@ -298,10 +298,10 @@ API path: `/api/beverage/mix`
 
 | Field | Description |
 | --- | --- |
-| `code` |  |
-| `creator` |  |
-| `result` |  |
-| `status` |  |
+| `code` | HTTP status code |
+| `creator` | API creator name |
+| `result` | The dare challenge text |
+| `status` | Indicates if the request was successful |
 
 Operations: load.
 
@@ -326,9 +326,9 @@ Create an instance: `const beverage = client.Beverage()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `difficulty` | `string` |  |
-| `ingredients` | `any[]` |  |
-| `recommendation` | `string` |  |
+| `difficulty` | `string` | Difficulty level of preparing the mix |
+| `ingredients` | `any[]` | List of ingredients in the mix |
+| `recommendation` | `string` | Detailed mixing recommendation |
 
 #### Example: Load
 
@@ -351,10 +351,10 @@ Create an instance: `const dare = client.Dare()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `code` | `number` |  |
-| `creator` | `string` |  |
-| `result` | `string` |  |
-| `status` | `boolean` |  |
+| `code` | `number` | HTTP status code |
+| `creator` | `string` | API creator name |
+| `result` | `string` | The dare challenge text |
+| `status` | `boolean` | Indicates if the request was successful |
 
 #### Example: Load
 

@@ -242,9 +242,9 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `difficulty` |  |
-| `ingredients` |  |
-| `recommendation` |  |
+| `difficulty` | Difficulty level of preparing the mix |
+| `ingredients` | List of ingredients in the mix |
+| `recommendation` | Detailed mixing recommendation |
 
 Operations: Load.
 
@@ -254,10 +254,10 @@ API path: `/api/beverage/mix`
 
 | Field | Description |
 | --- | --- |
-| `code` |  |
-| `creator` |  |
-| `result` |  |
-| `status` |  |
+| `code` | HTTP status code |
+| `creator` | API creator name |
+| `result` | The dare challenge text |
+| `status` | Indicates if the request was successful |
 
 Operations: Load.
 
@@ -282,9 +282,9 @@ Create an instance: `beverage = client.Beverage()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `difficulty` | `str` |  |
-| `ingredients` | `list` |  |
-| `recommendation` | `str` |  |
+| `difficulty` | `str` | Difficulty level of preparing the mix |
+| `ingredients` | `list` | List of ingredients in the mix |
+| `recommendation` | `str` | Detailed mixing recommendation |
 
 #### Example: Load
 
@@ -307,10 +307,10 @@ Create an instance: `dare = client.Dare()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `code` | `int` |  |
-| `creator` | `str` |  |
-| `result` | `str` |  |
-| `status` | `bool` |  |
+| `code` | `int` | HTTP status code |
+| `creator` | `str` | API creator name |
+| `result` | `str` | The dare challenge text |
+| `status` | `bool` | Indicates if the request was successful |
 
 #### Example: Load
 

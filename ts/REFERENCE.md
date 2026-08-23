@@ -128,9 +128,9 @@ const beverage = client.Beverage()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `difficulty` | `string` | No |  |
-| `ingredients` | `any[]` | No |  |
-| `recommendation` | `string` | No |  |
+| `difficulty` | `string` | No | Difficulty level of preparing the mix |
+| `ingredients` | `any[]` | No | List of ingredients in the mix |
+| `recommendation` | `string` | No | Detailed mixing recommendation |
 
 ### Actions
 
@@ -200,10 +200,10 @@ const dare = client.Dare()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | `number` | Yes |  |
-| `creator` | `string` | Yes |  |
-| `result` | `string` | Yes |  |
-| `status` | `boolean` | Yes |  |
+| `code` | `number` | Yes | HTTP status code |
+| `creator` | `string` | Yes | API creator name |
+| `result` | `string` | Yes | The dare challenge text |
+| `status` | `boolean` | Yes | Indicates if the request was successful |
 
 ### Operations
 

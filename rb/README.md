@@ -236,9 +236,9 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `difficulty` |  |
-| `ingredients` |  |
-| `recommendation` |  |
+| `difficulty` | Difficulty level of preparing the mix |
+| `ingredients` | List of ingredients in the mix |
+| `recommendation` | Detailed mixing recommendation |
 
 Operations: Load.
 
@@ -248,10 +248,10 @@ API path: `/api/beverage/mix`
 
 | Field | Description |
 | --- | --- |
-| `code` |  |
-| `creator` |  |
-| `result` |  |
-| `status` |  |
+| `code` | HTTP status code |
+| `creator` | API creator name |
+| `result` | The dare challenge text |
+| `status` | Indicates if the request was successful |
 
 Operations: Load.
 
@@ -276,9 +276,9 @@ Create an instance: `beverage = client.Beverage`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `difficulty` | `String` |  |
-| `ingredients` | `Array` |  |
-| `recommendation` | `String` |  |
+| `difficulty` | `String` | Difficulty level of preparing the mix |
+| `ingredients` | `Array` | List of ingredients in the mix |
+| `recommendation` | `String` | Detailed mixing recommendation |
 
 #### Example: Load
 
@@ -302,10 +302,10 @@ Create an instance: `dare = client.Dare`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `code` | `Integer` |  |
-| `creator` | `String` |  |
-| `result` | `String` |  |
-| `status` | `Boolean` |  |
+| `code` | `Integer` | HTTP status code |
+| `creator` | `String` | API creator name |
+| `result` | `String` | The dare challenge text |
+| `status` | `Boolean` | Indicates if the request was successful |
 
 #### Example: Load
 

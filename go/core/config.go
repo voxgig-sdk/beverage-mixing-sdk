@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "BeverageMixing",
+			"slug": "beverage-mixing",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -34,14 +37,17 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "difficulty",
+						"short": "Difficulty level of preparing the mix",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "ingredients",
+						"short": "List of ingredients in the mix",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "recommendation",
+						"short": "Detailed mixing recommendation",
 						"type": "`$STRING`",
 					},
 				},
@@ -102,21 +108,25 @@ func MakeConfig() map[string]any {
 					map[string]any{
 						"name": "code",
 						"req": true,
+						"short": "HTTP status code",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "creator",
 						"req": true,
+						"short": "API creator name",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "result",
 						"req": true,
+						"short": "The dare challenge text",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "status",
 						"req": true,
+						"short": "Indicates if the request was successful",
 						"type": "`$BOOLEAN`",
 					},
 				},

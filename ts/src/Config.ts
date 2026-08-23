@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'BeverageMixing',
+        slug: "beverage-mixing",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -59,14 +70,17 @@ class Config {
       "fields": [
         {
           "name": "difficulty",
+          "short": "Difficulty level of preparing the mix",
           "type": "`$STRING`"
         },
         {
           "name": "ingredients",
+          "short": "List of ingredients in the mix",
           "type": "`$ARRAY`"
         },
         {
           "name": "recommendation",
+          "short": "Detailed mixing recommendation",
           "type": "`$STRING`"
         }
       ],
@@ -127,21 +141,25 @@ class Config {
         {
           "name": "code",
           "req": true,
+          "short": "HTTP status code",
           "type": "`$INTEGER`"
         },
         {
           "name": "creator",
           "req": true,
+          "short": "API creator name",
           "type": "`$STRING`"
         },
         {
           "name": "result",
           "req": true,
+          "short": "The dare challenge text",
           "type": "`$STRING`"
         },
         {
           "name": "status",
           "req": true,
+          "short": "Indicates if the request was successful",
           "type": "`$BOOLEAN`"
         }
       ],

@@ -8,16 +8,19 @@ main: kit: entity: beverage: {
     {
       name: "difficulty"
       req: false
+      short: "Difficulty level of preparing the mix"
       type: "`$STRING`"
     }
     {
       name: "ingredients"
       req: false
+      short: "List of ingredients in the mix"
       type: "`$ARRAY`"
     }
     {
       name: "recommendation"
       req: false
+      short: "Detailed mixing recommendation"
       type: "`$STRING`"
     }
   ]

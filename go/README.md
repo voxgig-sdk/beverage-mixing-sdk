@@ -6,7 +6,7 @@ The Golang SDK for the BeverageMixing API — an entity-oriented client using st
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Beverage(nil)` — each with the same small set of operations (`Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -259,9 +259,9 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"difficulty"` |  |
-| `"ingredients"` |  |
-| `"recommendation"` |  |
+| `"difficulty"` | Difficulty level of preparing the mix |
+| `"ingredients"` | List of ingredients in the mix |
+| `"recommendation"` | Detailed mixing recommendation |
 
 Operations: Load.
 
@@ -271,10 +271,10 @@ API path: `/api/beverage/mix`
 
 | Field | Description |
 | --- | --- |
-| `"code"` |  |
-| `"creator"` |  |
-| `"result"` |  |
-| `"status"` |  |
+| `"code"` | HTTP status code |
+| `"creator"` | API creator name |
+| `"result"` | The dare challenge text |
+| `"status"` | Indicates if the request was successful |
 
 Operations: Load.
 
@@ -299,9 +299,9 @@ Create an instance: `beverage := client.Beverage(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `difficulty` | `string` |  |
-| `ingredients` | `[]any` |  |
-| `recommendation` | `string` |  |
+| `difficulty` | `string` | Difficulty level of preparing the mix |
+| `ingredients` | `[]any` | List of ingredients in the mix |
+| `recommendation` | `string` | Detailed mixing recommendation |
 
 #### Example: Load
 
@@ -328,10 +328,10 @@ Create an instance: `dare := client.Dare(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `code` | `int` |  |
-| `creator` | `string` |  |
-| `result` | `string` |  |
-| `status` | `bool` |  |
+| `code` | `int` | HTTP status code |
+| `creator` | `string` | API creator name |
+| `result` | `string` | The dare challenge text |
+| `status` | `bool` | Indicates if the request was successful |
 
 #### Example: Load
 

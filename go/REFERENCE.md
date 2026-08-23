@@ -102,9 +102,9 @@ fmt.Println(beverage.GetName()) // "beverage"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `difficulty` | `string` | No |  |
-| `ingredients` | `[]any` | No |  |
-| `recommendation` | `string` | No |  |
+| `difficulty` | `string` | No | Difficulty level of preparing the mix |
+| `ingredients` | `[]any` | No | List of ingredients in the mix |
+| `recommendation` | `string` | No | Detailed mixing recommendation |
 
 ### Operations
 
@@ -155,10 +155,10 @@ fmt.Println(dare.GetName()) // "dare"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | `int` | Yes |  |
-| `creator` | `string` | Yes |  |
-| `result` | `string` | Yes |  |
-| `status` | `bool` | Yes |  |
+| `code` | `int` | Yes | HTTP status code |
+| `creator` | `string` | Yes | API creator name |
+| `result` | `string` | Yes | The dare challenge text |
+| `status` | `bool` | Yes | Indicates if the request was successful |
 
 ### Operations
 

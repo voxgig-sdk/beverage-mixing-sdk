@@ -96,9 +96,9 @@ $beverage = $client->Beverage();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `difficulty` | `string` | No |  |
-| `ingredients` | `array` | No |  |
-| `recommendation` | `string` | No |  |
+| `difficulty` | `string` | No | Difficulty level of preparing the mix |
+| `ingredients` | `array` | No | List of ingredients in the mix |
+| `recommendation` | `string` | No | Detailed mixing recommendation |
 
 ### Operations
 
@@ -150,10 +150,10 @@ $dare = $client->Dare();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | `int` | Yes |  |
-| `creator` | `string` | Yes |  |
-| `result` | `string` | Yes |  |
-| `status` | `bool` | Yes |  |
+| `code` | `int` | Yes | HTTP status code |
+| `creator` | `string` | Yes | API creator name |
+| `result` | `string` | Yes | The dare challenge text |
+| `status` | `bool` | Yes | Indicates if the request was successful |
 
 ### Operations
 

@@ -226,9 +226,9 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `difficulty` |  |
-| `ingredients` |  |
-| `recommendation` |  |
+| `difficulty` | Difficulty level of preparing the mix |
+| `ingredients` | List of ingredients in the mix |
+| `recommendation` | Detailed mixing recommendation |
 
 Operations: Load.
 
@@ -238,10 +238,10 @@ API path: `/api/beverage/mix`
 
 | Field | Description |
 | --- | --- |
-| `code` |  |
-| `creator` |  |
-| `result` |  |
-| `status` |  |
+| `code` | HTTP status code |
+| `creator` | API creator name |
+| `result` | The dare challenge text |
+| `status` | Indicates if the request was successful |
 
 Operations: Load.
 
@@ -266,9 +266,9 @@ Create an instance: `local beverage = client:Beverage(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `difficulty` | `string` |  |
-| `ingredients` | `table` |  |
-| `recommendation` | `string` |  |
+| `difficulty` | `string` | Difficulty level of preparing the mix |
+| `ingredients` | `table` | List of ingredients in the mix |
+| `recommendation` | `string` | Detailed mixing recommendation |
 
 #### Example: Load
 
@@ -291,10 +291,10 @@ Create an instance: `local dare = client:Dare(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `code` | `number` |  |
-| `creator` | `string` |  |
-| `result` | `string` |  |
-| `status` | `boolean` |  |
+| `code` | `number` | HTTP status code |
+| `creator` | `string` | API creator name |
+| `result` | `string` | The dare challenge text |
+| `status` | `boolean` | Indicates if the request was successful |
 
 #### Example: Load
 

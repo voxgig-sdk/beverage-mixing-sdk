@@ -7,6 +7,9 @@ local function make_config()
   return {
     main = {
       name = "BeverageMixing",
+      slug = "beverage-mixing",
+      version = "0.0.1",
+      target = "lua",
     },
     feature = {
       ["test"] = {
@@ -30,14 +33,17 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "difficulty",
+            ["short"] = "Difficulty level of preparing the mix",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "ingredients",
+            ["short"] = "List of ingredients in the mix",
             ["type"] = "`$ARRAY`",
           },
           {
             ["name"] = "recommendation",
+            ["short"] = "Detailed mixing recommendation",
             ["type"] = "`$STRING`",
           },
         },
@@ -98,21 +104,25 @@ local function make_config()
           {
             ["name"] = "code",
             ["req"] = true,
+            ["short"] = "HTTP status code",
             ["type"] = "`$INTEGER`",
           },
           {
             ["name"] = "creator",
             ["req"] = true,
+            ["short"] = "API creator name",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "result",
             ["req"] = true,
+            ["short"] = "The dare challenge text",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "status",
             ["req"] = true,
+            ["short"] = "Indicates if the request was successful",
             ["type"] = "`$BOOLEAN`",
           },
         },

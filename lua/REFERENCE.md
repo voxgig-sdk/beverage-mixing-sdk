@@ -94,9 +94,9 @@ local beverage = client:Beverage(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `difficulty` | `string` | No |  |
-| `ingredients` | `table` | No |  |
-| `recommendation` | `string` | No |  |
+| `difficulty` | `string` | No | Difficulty level of preparing the mix |
+| `ingredients` | `table` | No | List of ingredients in the mix |
+| `recommendation` | `string` | No | Detailed mixing recommendation |
 
 ### Operations
 
@@ -148,10 +148,10 @@ local dare = client:Dare(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `code` | `number` | Yes |  |
-| `creator` | `string` | Yes |  |
-| `result` | `string` | Yes |  |
-| `status` | `boolean` | Yes |  |
+| `code` | `number` | Yes | HTTP status code |
+| `creator` | `string` | Yes | API creator name |
+| `result` | `string` | Yes | The dare challenge text |
+| `status` | `boolean` | Yes | Indicates if the request was successful |
 
 ### Operations
 

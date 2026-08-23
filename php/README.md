@@ -246,9 +246,9 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `difficulty` |  |
-| `ingredients` |  |
-| `recommendation` |  |
+| `difficulty` | Difficulty level of preparing the mix |
+| `ingredients` | List of ingredients in the mix |
+| `recommendation` | Detailed mixing recommendation |
 
 Operations: Load.
 
@@ -258,10 +258,10 @@ API path: `/api/beverage/mix`
 
 | Field | Description |
 | --- | --- |
-| `code` |  |
-| `creator` |  |
-| `result` |  |
-| `status` |  |
+| `code` | HTTP status code |
+| `creator` | API creator name |
+| `result` | The dare challenge text |
+| `status` | Indicates if the request was successful |
 
 Operations: Load.
 
@@ -286,9 +286,9 @@ Create an instance: `$beverage = $client->Beverage();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `difficulty` | `string` |  |
-| `ingredients` | `array` |  |
-| `recommendation` | `string` |  |
+| `difficulty` | `string` | Difficulty level of preparing the mix |
+| `ingredients` | `array` | List of ingredients in the mix |
+| `recommendation` | `string` | Detailed mixing recommendation |
 
 #### Example: Load
 
@@ -312,10 +312,10 @@ Create an instance: `$dare = $client->Dare();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `code` | `int` |  |
-| `creator` | `string` |  |
-| `result` | `string` |  |
-| `status` | `bool` |  |
+| `code` | `int` | HTTP status code |
+| `creator` | `string` | API creator name |
+| `result` | `string` | The dare challenge text |
+| `status` | `bool` | Indicates if the request was successful |
 
 #### Example: Load
 

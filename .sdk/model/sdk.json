@@ -36,18 +36,21 @@
               "active": true,
               "name": "difficulty",
               "req": false,
+              "short": "Difficulty level of preparing the mix",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "ingredients",
               "req": false,
+              "short": "List of ingredients in the mix",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "recommendation",
               "req": false,
+              "short": "Detailed mixing recommendation",
               "type": "`$STRING`"
             }
           ],
@@ -118,24 +121,28 @@
               "active": true,
               "name": "code",
               "req": true,
+              "short": "HTTP status code",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "creator",
               "req": true,
+              "short": "API creator name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "result",
               "req": true,
+              "short": "The dare challenge text",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "status",
               "req": true,
+              "short": "Indicates if the request was successful",
               "type": "`$BOOLEAN`"
             }
           ],
