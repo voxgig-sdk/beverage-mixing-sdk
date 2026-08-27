@@ -21,9 +21,8 @@ type Beverage struct {
 
 // BeverageLoadMatch is the typed request payload for Beverage.LoadTyped.
 type BeverageLoadMatch struct {
-	Difficulty *string `json:"difficulty,omitempty"`
-	Ingredients *[]any `json:"ingredients,omitempty"`
-	Recommendation *string `json:"recommendation,omitempty"`
+	Beverage *string `json:"beverage,omitempty"`
+	Ingredient *string `json:"ingredient,omitempty"`
 }
 
 // Dare is the typed data model for the dare entity.

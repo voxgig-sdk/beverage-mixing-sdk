@@ -23,9 +23,8 @@ class Beverage(TypedDict, total=False):
 
 
 class BeverageLoadMatch(TypedDict, total=False):
-    difficulty: str
-    ingredients: list
-    recommendation: str
+    beverage: str
+    ingredient: str
 
 
 class Dare(TypedDict):

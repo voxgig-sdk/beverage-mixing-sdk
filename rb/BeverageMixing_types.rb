@@ -27,18 +27,14 @@ Beverage = Struct.new(
 
 # Request payload for Beverage#load.
 #
-# @!attribute [rw] difficulty
+# @!attribute [rw] beverage
 #   @return [String, nil]
 #
-# @!attribute [rw] ingredients
-#   @return [Array, nil]
-#
-# @!attribute [rw] recommendation
+# @!attribute [rw] ingredient
 #   @return [String, nil]
 BeverageLoadMatch = Struct.new(
-  :difficulty,
-  :ingredients,
-  :recommendation,
+  :beverage,
+  :ingredient,
   keyword_init: true
 )
 

@@ -12,9 +12,8 @@ export interface Beverage {
 }
 
 export interface BeverageLoadMatch {
-  difficulty?: string
-  ingredients?: any[]
-  recommendation?: string
+  beverage?: string
+  ingredient?: string
 
   // Selects a custom action instead of the plain load:
   //   'mix'

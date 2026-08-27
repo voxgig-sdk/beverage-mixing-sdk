@@ -23,9 +23,8 @@ class Beverage
 /** Request payload for Beverage#load. */
 class BeverageLoadMatch
 {
-    public ?string $difficulty = null;
-    public ?array $ingredients = null;
-    public ?string $recommendation = null;
+    public ?string $beverage = null;
+    public ?string $ingredient = null;
 }
 
 /** Dare entity data model. */

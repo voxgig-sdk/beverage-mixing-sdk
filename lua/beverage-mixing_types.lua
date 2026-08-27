@@ -12,9 +12,8 @@
 ---@field recommendation? string
 
 ---@class BeverageLoadMatch
----@field difficulty? string
----@field ingredients? table
----@field recommendation? string
+---@field beverage? string
+---@field ingredient? string
 
 ---@class Dare
 ---@field code number
