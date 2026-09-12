@@ -39,10 +39,16 @@ main: kit: entity: dare: {
         {
           method: "GET"
           orig: "/api/game/dare"
-          parts: [
-            "api"
-            "game"
-            "dare"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "game"
+            }
+            {
+              lit: "dare"
+            }
           ]
           transform: {
             req: "`reqdata`"

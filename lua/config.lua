@@ -76,10 +76,16 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/beverage/mix",
-                ["parts"] = {
-                  "api",
-                  "beverage",
-                  "mix",
+                ["segments"] = {
+                  {
+                    ["lit"] = "api",
+                  },
+                  {
+                    ["lit"] = "beverage",
+                  },
+                  {
+                    ["lit"] = "mix",
+                  },
                 },
                 ["select"] = {
                   ["$action"] = "mix",
@@ -91,6 +97,11 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.result`",
+                },
+                ["parts"] = {
+                  "api",
+                  "beverage",
+                  "mix",
                 },
               },
             },
@@ -138,15 +149,26 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/game/dare",
-                ["parts"] = {
-                  "api",
-                  "game",
-                  "dare",
+                ["segments"] = {
+                  {
+                    ["lit"] = "api",
+                  },
+                  {
+                    ["lit"] = "game",
+                  },
+                  {
+                    ["lit"] = "dare",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "api",
+                  "game",
+                  "dare",
                 },
               },
             },
