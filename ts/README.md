@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { BeverageMixingSDK } from '@voxgig-sdk/beverage-mixing'
+import { BeverageMixingSDK } from '@voxgig-sdk/beverage-mixing-sdk'
 
 const client = new BeverageMixingSDK()
 ```
@@ -445,7 +445,7 @@ beverage-mixing/
 Import the SDK from the package root:
 
 ```ts
-import { BeverageMixingSDK } from '@voxgig-sdk/beverage-mixing'
+import { BeverageMixingSDK } from '@voxgig-sdk/beverage-mixing-sdk'
 ```
 
 ### Entity state
