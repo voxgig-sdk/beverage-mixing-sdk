@@ -37,6 +37,12 @@ main: kit: entity: dare: {
       name: "load"
       points: [
         {
+          contract: {
+            id: "GET /api/game/dare"
+            json: "{\"operationId\":\"getDare\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"code\":200,\"creator\":\"𝙰𝙱𝙷𝙸𝚂𝙷𝙴𝙺 𝚂𝚄𝚁𝙴𝚂𝙷🍀\",\"result\":\"Flirt with someone you have a crush on, your closest friend, an unknown person of the opposite gender, etc.\",\"status\":true},\"schema\":{\"properties\":{\"code\":{\"description\":\"HTTP status code\",\"example\":200,\"type\":\"integer\"},\"creator\":{\"description\":\"API creator name\",\"example\":\"𝙰𝙱𝙷𝙸𝚂𝙷𝙴𝙺 𝚂𝚄𝚁𝙴𝚂𝙷🍀\",\"type\":\"string\"},\"result\":{\"description\":\"The dare challenge text\",\"example\":\"Flirt with someone you have a crush on, your closest friend, an unknown person of the opposite gender, etc.\",\"type\":\"string\"},\"status\":{\"description\":\"Indicates if the request was successful\",\"example\":true,\"type\":\"boolean\"}},\"required\":[\"code\",\"status\",\"creator\",\"result\"],\"type\":\"object\"}}},\"description\":\"Successful response with dare challenge\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"HTTP error status code\",\"example\":500,\"type\":\"integer\"},\"creator\":{\"description\":\"API creator name\",\"example\":\"𝙰𝙱𝙷𝙸𝚂𝙷𝙴𝙺 𝚂𝚄𝚁𝙴𝚂𝙷🍀\",\"type\":\"string\"},\"error\":{\"description\":\"Error message\",\"example\":\"An error occurred while processing your request\",\"type\":\"string\"},\"status\":{\"description\":\"Indicates if the request was successful\",\"example\":false,\"type\":\"boolean\"}},\"required\":[\"code\",\"status\",\"error\"],\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/api/game/dare"
           segments: [

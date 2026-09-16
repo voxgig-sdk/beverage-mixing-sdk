@@ -1,12 +1,18 @@
 # BeverageMixing SDK feature factory
 
 from beveragemixing_sdk.feature.base_feature import BeverageMixingBaseFeature
+from beveragemixing_sdk.feature.ratelimit_feature import BeverageMixingRatelimitFeature
+from beveragemixing_sdk.feature.retry_feature import BeverageMixingRetryFeature
 from beveragemixing_sdk.feature.test_feature import BeverageMixingTestFeature
+from beveragemixing_sdk.feature.timeout_feature import BeverageMixingTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: BeverageMixingBaseFeature(),
+    "ratelimit": lambda: BeverageMixingRatelimitFeature(),
+    "retry": lambda: BeverageMixingRetryFeature(),
     "test": lambda: BeverageMixingTestFeature(),
+    "timeout": lambda: BeverageMixingTimeoutFeature(),
 }
 
 

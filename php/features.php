@@ -4,7 +4,10 @@ declare(strict_types=1);
 // BeverageMixing SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class BeverageMixingFeatures
@@ -14,8 +17,14 @@ class BeverageMixingFeatures
         switch ($name) {
             case "base":
                 return new BeverageMixingBaseFeature();
+            case "ratelimit":
+                return new BeverageMixingRatelimitFeature();
+            case "retry":
+                return new BeverageMixingRetryFeature();
             case "test":
                 return new BeverageMixingTestFeature();
+            case "timeout":
+                return new BeverageMixingTimeoutFeature();
             default:
                 return new BeverageMixingBaseFeature();
         }
@@ -31,7 +40,10 @@ class BeverageMixingFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

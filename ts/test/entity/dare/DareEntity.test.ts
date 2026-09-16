@@ -5,6 +5,8 @@ import * as Fs from 'node:fs'
 
 import { test, describe, afterEach } from 'node:test'
 import assert from 'node:assert'
+import { createLiveTransport } from '../../live-runner'
+import { runLiveEntity } from '../../live-entity'
 
 
 import { BeverageMixingSDK, BaseFeature, stdutil } from '../../..'
@@ -47,16 +49,13 @@ describe('DareEntity', async () => {
 
     const live = 'TRUE' === process.env.BEVERAGE_MIXING_TEST_LIVE
     for (const op of ['load']) {
-      if (maybeSkipControl(t, 'entityOp', 'dare.' + op, live)) return
+      if (!live && maybeSkipControl(t, 'entityOp', 'dare.' + op, live)) return
     }
 
+    
     const setup = basicSetup()
-    // The basic flow consumes synthetic IDs and field values from the
-    // fixture (entity TestData.json). Those don't exist on the live API.
-    // Skip live runs unless the user provided a real ENTID env override.
-    if (setup.syntheticOnly) {
-      t.skip('live entity test uses synthetic IDs from fixture — set BEVERAGE_MIXING_TEST_DARE_ENTID JSON to run live')
-      return
+    if (setup.live) {
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":[{"active":true,"name":"code","req":true,"short":"HTTP status code","type":"`$INTEGER`","index$":0},{"active":true,"name":"creator","req":true,"short":"API creator name","type":"`$STRING`","index$":1},{"active":true,"name":"result","req":true,"short":"The dare challenge text","type":"`$STRING`","index$":2},{"active":true,"name":"status","req":true,"short":"Indicates if the request was successful","type":"`$BOOLEAN`","index$":3}],"name":"dare","op":{"load":{"input":"data","name":"load","points":[{"active":true,"args":{},"contract":{"id":"GET /api/game/dare","json":"{\"operationId\":\"getDare\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"code\":200,\"creator\":\"𝙰𝙱𝙷𝙸𝚂𝙷𝙴𝙺 𝚂𝚄𝚁𝙴𝚂𝙷🍀\",\"result\":\"Flirt with someone you have a crush on, your closest friend, an unknown person of the opposite gender, etc.\",\"status\":true},\"schema\":{\"properties\":{\"code\":{\"description\":\"HTTP status code\",\"example\":200,\"type\":\"integer\"},\"creator\":{\"description\":\"API creator name\",\"example\":\"𝙰𝙱𝙷𝙸𝚂𝙷𝙴𝙺 𝚂𝚄𝚁𝙴𝚂𝙷🍀\",\"type\":\"string\"},\"result\":{\"description\":\"The dare challenge text\",\"example\":\"Flirt with someone you have a crush on, your closest friend, an unknown person of the opposite gender, etc.\",\"type\":\"string\"},\"status\":{\"description\":\"Indicates if the request was successful\",\"example\":true,\"type\":\"boolean\"}},\"required\":[\"code\",\"status\",\"creator\",\"result\"],\"type\":\"object\"}}},\"description\":\"Successful response with dare challenge\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"HTTP error status code\",\"example\":500,\"type\":\"integer\"},\"creator\":{\"description\":\"API creator name\",\"example\":\"𝙰𝙱𝙷𝙸𝚂𝙷𝙴𝙺 𝚂𝚄𝚁𝙴𝚂𝙷🍀\",\"type\":\"string\"},\"error\":{\"description\":\"Error message\",\"example\":\"An error occurred while processing your request\",\"type\":\"string\"},\"status\":{\"description\":\"Indicates if the request was successful\",\"example\":false,\"type\":\"boolean\"}},\"required\":[\"code\",\"status\",\"error\"],\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}","source":"openapi3","version":1},"kind":"http","method":"GET","orig":"/api/game/dare","segments":[{"lit":"api"},{"lit":"game"},{"lit":"dare"}],"select":{},"transform":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"dare","name__orig":"dare","Name":"Dare","name_":"dare","name-":"dare","NAME":"DARE","index$":1}, {"active":true,"entity":"dare","key$":"BasicDareFlow","kind":"basic","name":"BasicDareFlow","param":{},"step":[{"active":true,"data":{},"input":{"ref":"dare_ref01","srcdatavar":"dare_ref01_data","suffix":"_dt0"},"match":{},"op":"load","spec":[],"valid":[{"apply":"TextFieldMark","def":{"mark":"Mark01-dare_ref01"}}],"index$":0}]}, 'Dare')
     }
     const client = setup.client
     const struct = setup.struct
@@ -109,13 +108,6 @@ function basicSetup(extra?: any) {
       }]
     })
 
-  // Detect whether the user provided a real ENTID JSON via env var. The
-  // basic flow consumes synthetic IDs from the fixture file; without an
-  // override those synthetic IDs reach the live API and 4xx. Surface this
-  // to the test so it can skip rather than fail.
-  const idmapEnvVal = process.env['BEVERAGE_MIXING_TEST_DARE_ENTID']
-  const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{')
-
   const env = envOverride({
     'BEVERAGE_MIXING_TEST_DARE_ENTID': idmap,
     'BEVERAGE_MIXING_TEST_LIVE': 'FALSE',
@@ -126,7 +118,13 @@ function basicSetup(extra?: any) {
 
   const live = 'TRUE' === env.BEVERAGE_MIXING_TEST_LIVE
 
+  const transport = createLiveTransport()
   if (live) {
+    const rawIds = process.env['BEVERAGE_MIXING_TEST_DARE_ENTID']
+    idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {}
+    if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+      throw new Error('Live ENTID must be a JSON object')
+    }
     client = new BeverageMixingSDK(merge([
       // FIRST, so the generated fields below win: sdk-test-control.json's
       // test.client.options adds to the live client, it does not redirect it.
@@ -138,7 +136,8 @@ function basicSetup(extra?: any) {
       // argument at all - so a bare 'extra' silently discarded the apikey
       // and server values above and handed the SDK undefined. Harmless
       // while there was nothing in that object; not harmless now.
-      extra || {}
+      extra || {},
+      { system: { fetch: transport.fetch } }
     ]))
   }
 
@@ -151,7 +150,7 @@ function basicSetup(extra?: any) {
     data: entityData,
     explain: 'TRUE' === env.BEVERAGE_MIXING_TEST_EXPLAIN,
     live,
-    syntheticOnly: live && !idmapOverridden,
+    transport,
     now: Date.now(),
   }
 
