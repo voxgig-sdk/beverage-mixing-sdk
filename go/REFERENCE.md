@@ -98,14 +98,6 @@ beverage := client.Beverage(nil)
 fmt.Println(beverage.GetName()) // "beverage"
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `difficulty` | `string` | No | Difficulty level of preparing the mix |
-| `ingredients` | `[]any` | No | List of ingredients in the mix |
-| `recommendation` | `string` | No | Detailed mixing recommendation |
-
 ### Operations
 
 #### `Load(reqmatch, ctrl map[string]any) (any, error)`

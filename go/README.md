@@ -259,9 +259,6 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"difficulty"` | Difficulty level of preparing the mix |
-| `"ingredients"` | List of ingredients in the mix |
-| `"recommendation"` | Detailed mixing recommendation |
 
 Operations: Load.
 
@@ -294,14 +291,6 @@ Create an instance: `beverage := client.Beverage(nil)`
 | Method | Description |
 | --- | --- |
 | `Load(match, ctrl)` | Load a single entity by match criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `difficulty` | `string` | Difficulty level of preparing the mix |
-| `ingredients` | `[]any` | List of ingredients in the mix |
-| `recommendation` | `string` | Detailed mixing recommendation |
 
 #### Example: Load
 

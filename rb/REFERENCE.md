@@ -93,14 +93,6 @@ same parameters as `direct()`. Raises on error.
 beverage = client.Beverage
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `difficulty` | `String` | No | Difficulty level of preparing the mix |
-| `ingredients` | `Array` | No | List of ingredients in the mix |
-| `recommendation` | `String` | No | Detailed mixing recommendation |
-
 ### Operations
 
 #### `load(reqmatch, ctrl = nil) -> result`

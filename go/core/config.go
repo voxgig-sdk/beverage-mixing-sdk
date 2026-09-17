@@ -89,23 +89,7 @@ func MakeConfig() map[string]any {
 		},
 		"entity": map[string]any{
 			"beverage": map[string]any{
-				"fields": []any{
-					map[string]any{
-						"name": "difficulty",
-						"short": "Difficulty level of preparing the mix",
-						"type": "`$STRING`",
-					},
-					map[string]any{
-						"name": "ingredients",
-						"short": "List of ingredients in the mix",
-						"type": "`$ARRAY`",
-					},
-					map[string]any{
-						"name": "recommendation",
-						"short": "Detailed mixing recommendation",
-						"type": "`$STRING`",
-					},
-				},
+				"fields": []any{},
 				"name": "beverage",
 				"op": map[string]any{
 					"load": map[string]any{

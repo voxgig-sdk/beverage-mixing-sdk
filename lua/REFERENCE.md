@@ -90,14 +90,6 @@ same parameters as `direct()`.
 local beverage = client:Beverage(nil)
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `difficulty` | `string` | No | Difficulty level of preparing the mix |
-| `ingredients` | `table` | No | List of ingredients in the mix |
-| `recommendation` | `string` | No | Detailed mixing recommendation |
-
 ### Operations
 
 #### `load(reqmatch, ctrl) -> any, err`

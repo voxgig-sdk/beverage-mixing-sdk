@@ -105,12 +105,12 @@ local result, err = client:Beverage():load()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/beverage-mixing-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/beverage-mixing-sdk/releases) |
-| Python | `voxgig-sdk-beverage-mixing` | publish pending — [install from git tag](https://github.com/voxgig-sdk/beverage-mixing-sdk/releases) |
-| PHP | `voxgig-sdk/beverage-mixing` | publish pending — [install from git tag](https://github.com/voxgig-sdk/beverage-mixing-sdk/releases) |
+| TypeScript | `@voxgig-sdk/beverage-mixing-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/beverage-mixing-sdk/tags) |
+| Python | `voxgig-sdk-beverage-mixing` | publish pending — [install from git tag](https://github.com/voxgig-sdk/beverage-mixing-sdk/tags) |
+| PHP | `voxgig-sdk/beverage-mixing` | publish pending — [install from git tag](https://github.com/voxgig-sdk/beverage-mixing-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/beverage-mixing-sdk/go` | `go get github.com/voxgig-sdk/beverage-mixing-sdk/go@latest` |
-| Ruby | `voxgig-sdk-beverage-mixing` | publish pending — [install from git tag](https://github.com/voxgig-sdk/beverage-mixing-sdk/releases) |
-| Lua | `voxgig-sdk-beverage-mixing` | publish pending — [install from git tag](https://github.com/voxgig-sdk/beverage-mixing-sdk/releases) |
+| Ruby | `voxgig-sdk-beverage-mixing` | publish pending — [install from git tag](https://github.com/voxgig-sdk/beverage-mixing-sdk/tags) |
+| Lua | `voxgig-sdk-beverage-mixing` | publish pending — [install from git tag](https://github.com/voxgig-sdk/beverage-mixing-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/beverage-mixing-sdk/go-cli` | `go install github.com/voxgig-sdk/beverage-mixing-sdk/go-cli/cmd/beverage-mixing@latest` |
 | Go MCP server | `github.com/voxgig-sdk/beverage-mixing-sdk/go-mcp` | `go get github.com/voxgig-sdk/beverage-mixing-sdk/go-mcp@latest` |
 

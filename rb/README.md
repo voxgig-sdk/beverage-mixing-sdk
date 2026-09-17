@@ -236,9 +236,6 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `difficulty` | Difficulty level of preparing the mix |
-| `ingredients` | List of ingredients in the mix |
-| `recommendation` | Detailed mixing recommendation |
 
 Operations: Load.
 
@@ -271,14 +268,6 @@ Create an instance: `beverage = client.Beverage`
 | Method | Description |
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `difficulty` | `String` | Difficulty level of preparing the mix |
-| `ingredients` | `Array` | List of ingredients in the mix |
-| `recommendation` | `String` | Detailed mixing recommendation |
 
 #### Example: Load
 
@@ -457,6 +446,7 @@ Use `Helpers.to_map()` to safely validate that a value is a hash.
 rb/
 ├── BeverageMixing_sdk.rb       -- Main SDK module
 ├── config.rb                  -- Configuration
+├── schema.rb                  -- Generated option + entity specs
 ├── features.rb                -- Feature factory
 ├── core/                      -- Core types and context
 ├── entity/                    -- Entity implementations

@@ -16,10 +16,8 @@ from __future__ import annotations
 from typing import TypedDict, Any
 
 
-class Beverage(TypedDict, total=False):
-    difficulty: str
-    ingredients: list
-    recommendation: str
+class Beverage(TypedDict):
+    pass
 
 
 class BeverageLoadMatch(TypedDict, total=False):

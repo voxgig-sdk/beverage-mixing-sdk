@@ -14,9 +14,6 @@ import (
 
 // Beverage is the typed data model for the beverage entity.
 type Beverage struct {
-	Difficulty *string `json:"difficulty,omitempty"`
-	Ingredients *[]any `json:"ingredients,omitempty"`
-	Recommendation *string `json:"recommendation,omitempty"`
 }
 
 // BeverageLoadMatch is the typed request payload for Beverage.LoadTyped.

@@ -124,14 +124,6 @@ Alias for `BeverageMixingSDK.test()`.
 const beverage = client.Beverage()
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `difficulty` | `string` | No | Difficulty level of preparing the mix |
-| `ingredients` | `any[]` | No | List of ingredients in the mix |
-| `recommendation` | `string` | No | Detailed mixing recommendation |
-
 ### Actions
 
 This entity exposes custom API actions in addition to the standard

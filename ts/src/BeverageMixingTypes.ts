@@ -6,9 +6,6 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface Beverage {
-  difficulty?: string
-  ingredients?: any[]
-  recommendation?: string
 }
 
 export interface BeverageLoadMatch {

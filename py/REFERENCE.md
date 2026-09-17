@@ -87,14 +87,6 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 beverage = client.Beverage()
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `difficulty` | `str` | No | Difficulty level of preparing the mix |
-| `ingredients` | `list` | No | List of ingredients in the mix |
-| `recommendation` | `str` | No | Detailed mixing recommendation |
-
 ### Operations
 
 #### `load(reqmatch, ctrl=None) -> dict`

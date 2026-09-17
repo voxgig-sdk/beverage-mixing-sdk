@@ -114,23 +114,7 @@ def make_config():
         },
         "entity": {
       "beverage": {
-        "fields": [
-          {
-            "name": "difficulty",
-            "short": "Difficulty level of preparing the mix",
-            "type": "`$STRING`",
-          },
-          {
-            "name": "ingredients",
-            "short": "List of ingredients in the mix",
-            "type": "`$ARRAY`",
-          },
-          {
-            "name": "recommendation",
-            "short": "Detailed mixing recommendation",
-            "type": "`$STRING`",
-          },
-        ],
+        "fields": [],
         "name": "beverage",
         "op": {
           "load": {

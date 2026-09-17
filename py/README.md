@@ -242,9 +242,6 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `difficulty` | Difficulty level of preparing the mix |
-| `ingredients` | List of ingredients in the mix |
-| `recommendation` | Detailed mixing recommendation |
 
 Operations: Load.
 
@@ -277,14 +274,6 @@ Create an instance: `beverage = client.Beverage()`
 | Method | Description |
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `difficulty` | `str` | Difficulty level of preparing the mix |
-| `ingredients` | `list` | List of ingredients in the mix |
-| `recommendation` | `str` | Detailed mixing recommendation |
 
 #### Example: Load
 
@@ -461,6 +450,7 @@ Use `helpers.to_map()` to safely validate that a value is a dict.
 py/
 ├── beveragemixing_sdk.py         -- Main SDK module
 ├── config.py                    -- Configuration
+├── schema.py                    -- Generated option + entity specs
 ├── features.py                  -- Feature factory
 ├── core/                        -- Core types and context
 ├── entity/                      -- Entity implementations

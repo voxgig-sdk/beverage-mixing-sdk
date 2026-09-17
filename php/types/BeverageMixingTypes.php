@@ -15,9 +15,6 @@ declare(strict_types=1);
 /** Beverage entity data model. */
 class Beverage
 {
-    public ?string $difficulty = null;
-    public ?array $ingredients = null;
-    public ?string $recommendation = null;
 }
 
 /** Request payload for Beverage#load. */

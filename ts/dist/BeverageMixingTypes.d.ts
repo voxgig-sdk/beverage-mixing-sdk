@@ -1,7 +1,4 @@
 export interface Beverage {
-    difficulty?: string;
-    ingredients?: any[];
-    recommendation?: string;
 }
 export interface BeverageLoadMatch {
     beverage?: string;

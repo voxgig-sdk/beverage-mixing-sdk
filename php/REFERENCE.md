@@ -92,14 +92,6 @@ Prepare a fetch definition without sending the request. Returns the
 $beverage = $client->Beverage();
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `difficulty` | `string` | No | Difficulty level of preparing the mix |
-| `ingredients` | `array` | No | List of ingredients in the mix |
-| `recommendation` | `string` | No | Detailed mixing recommendation |
-
 ### Operations
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`

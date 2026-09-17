@@ -226,9 +226,6 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `difficulty` | Difficulty level of preparing the mix |
-| `ingredients` | List of ingredients in the mix |
-| `recommendation` | Detailed mixing recommendation |
 
 Operations: Load.
 
@@ -261,14 +258,6 @@ Create an instance: `local beverage = client:Beverage(nil)`
 | Method | Description |
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `difficulty` | `string` | Difficulty level of preparing the mix |
-| `ingredients` | `table` | List of ingredients in the mix |
-| `recommendation` | `string` | Detailed mixing recommendation |
 
 #### Example: Load
 
@@ -445,6 +434,7 @@ Use `helpers.to_map()` to safely validate that a value is a table.
 lua/
 ├── beverage-mixing_sdk.lua    -- Main SDK module
 ├── config.lua               -- Configuration
+├── schema.lua               -- Generated option + entity specs
 ├── features.lua             -- Feature factory
 ├── core/                    -- Core types and context
 ├── entity/                  -- Entity implementations

@@ -7,9 +7,6 @@
 -- edit by hand.
 
 ---@class Beverage
----@field difficulty? string
----@field ingredients? table
----@field recommendation? string
 
 ---@class BeverageLoadMatch
 ---@field beverage? string

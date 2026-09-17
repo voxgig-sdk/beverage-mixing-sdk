@@ -246,9 +246,6 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `difficulty` | Difficulty level of preparing the mix |
-| `ingredients` | List of ingredients in the mix |
-| `recommendation` | Detailed mixing recommendation |
 
 Operations: Load.
 
@@ -281,14 +278,6 @@ Create an instance: `$beverage = $client->Beverage();`
 | Method | Description |
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `difficulty` | `string` | Difficulty level of preparing the mix |
-| `ingredients` | `array` | List of ingredients in the mix |
-| `recommendation` | `string` | Detailed mixing recommendation |
 
 #### Example: Load
 
@@ -467,6 +456,7 @@ Use `Helpers::to_map()` to safely validate that a value is an array.
 php/
 ├── beveragemixing_sdk.php          -- Main SDK class
 ├── config.php                     -- Configuration
+├── schema.php                     -- Generated option + entity specs
 ├── features.php                   -- Feature factory
 ├── core/                          -- Core types and context
 ├── entity/                        -- Entity implementations

@@ -291,9 +291,6 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `difficulty` | Difficulty level of preparing the mix |
-| `ingredients` | List of ingredients in the mix |
-| `recommendation` | Detailed mixing recommendation |
 
 Operations: load.
 
@@ -326,14 +323,6 @@ Create an instance: `const beverage = client.Beverage()`
 | Method | Description |
 | --- | --- |
 | `load(match)` | Load a single entity by match criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `difficulty` | `string` | Difficulty level of preparing the mix |
-| `ingredients` | `any[]` | List of ingredients in the mix |
-| `recommendation` | `string` | Detailed mixing recommendation |
 
 #### Example: Load
 

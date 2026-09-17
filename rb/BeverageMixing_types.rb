@@ -9,21 +9,8 @@
 # annotations document the shapes. Do not edit by hand.
 
 # Beverage entity data model.
-#
-# @!attribute [rw] difficulty
-#   @return [String, nil]
-#
-# @!attribute [rw] ingredients
-#   @return [Array, nil]
-#
-# @!attribute [rw] recommendation
-#   @return [String, nil]
-Beverage = Struct.new(
-  :difficulty,
-  :ingredients,
-  :recommendation,
-  keyword_init: true
-)
+class Beverage
+end
 
 # Request payload for Beverage#load.
 #

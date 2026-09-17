@@ -1,4 +1,4 @@
 # Entity Models
 
-@"beverage.aon"
-@"dare.aon"
+@"./beverage.aon"
+@"./dare.aon"

@@ -2,32 +2,19 @@
   "existing": {
     "beverage": {
       "BEVERAGE00": {
-        "difficulty": "s1e",
-        "ingredients": [],
-        "recommendation": "s20",
         "id": "BEVERAGE00"
       },
       "BEVERAGE01": {
-        "difficulty": "s3c",
-        "ingredients": [],
-        "recommendation": "s3e",
         "id": "BEVERAGE01"
       },
       "BEVERAGE02": {
-        "difficulty": "s5a",
-        "ingredients": [],
-        "recommendation": "s5c",
         "id": "BEVERAGE02"
       }
     }
   },
   "new": {
     "beverage": {
-      "beverage_ref01": {
-        "difficulty": "s78",
-        "ingredients": [],
-        "recommendation": "s7a"
-      }
+      "beverage_ref01": {}
     }
   },
   "requests": {
