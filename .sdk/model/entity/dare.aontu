@@ -1,0 +1,73 @@
+# Entity: dare
+
+main: kit: entity: dare: {
+
+  alias: field: {}
+
+  fields: {
+    code: {
+      h: "Code"
+      n: "code"
+      r: true
+      sh: "HTTP status code"
+      t: "`$INTEGER`"
+    }
+    creator: {
+      h: "Creator"
+      n: "creator"
+      r: true
+      sh: "API creator name"
+      t: "`$STRING`"
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      r: true
+      sh: "The dare challenge text"
+      t: "`$STRING`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: true
+      sh: "Indicates if the request was successful"
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  name: "dare"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/game/dare"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/api/game/dare"
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "game"
+            }
+            {
+              lit: "dare"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

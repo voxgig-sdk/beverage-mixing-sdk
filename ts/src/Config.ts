@@ -16,12 +16,6 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS: Record<string, any[]> = {
   
 }
@@ -32,7 +26,6 @@ class Config {
   makeFeature(this: any, fn: string) {
     const fc = FEATURE_CLASS[fn]
     const fi = new fc()
-    // TODO: errors etc
     return fi
   }
 
@@ -147,24 +140,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "example": "coffee",
-                    "kind": "query",
-                    "name": "beverage",
-                    "orig": "beverage",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": "milk",
-                    "kind": "query",
-                    "name": "ingredient",
-                    "orig": "ingredient",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/api/beverage/mix",
@@ -179,22 +154,41 @@ class Config {
                   "lit": "mix"
                 }
               ],
+              "parts": [
+                "api",
+                "beverage",
+                "mix"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body.result`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "beverage",
+                    "orig": "beverage",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "coffee"
+                  },
+                  {
+                    "name": "ingredient",
+                    "orig": "ingredient",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "milk"
+                  }
+                ]
+              },
               "select": {
                 "$action": "mix",
                 "exist": [
                   "beverage",
                   "ingredient"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body.result`"
-              },
-              "parts": [
-                "api",
-                "beverage",
-                "mix"
-              ]
+              }
             }
           ]
         }
@@ -207,27 +201,31 @@ class Config {
       "fields": [
         {
           "name": "code",
+          "title": "Code",
+          "type": "`$INTEGER`",
           "req": true,
-          "short": "HTTP status code",
-          "type": "`$INTEGER`"
+          "short": "HTTP status code"
         },
         {
           "name": "creator",
+          "title": "Creator",
+          "type": "`$STRING`",
           "req": true,
-          "short": "API creator name",
-          "type": "`$STRING`"
+          "short": "API creator name"
         },
         {
           "name": "result",
+          "title": "Result",
+          "type": "`$STRING`",
           "req": true,
-          "short": "The dare challenge text",
-          "type": "`$STRING`"
+          "short": "The dare challenge text"
         },
         {
           "name": "status",
+          "title": "Status",
+          "type": "`$BOOLEAN`",
           "req": true,
-          "short": "Indicates if the request was successful",
-          "type": "`$BOOLEAN`"
+          "short": "Indicates if the request was successful"
         }
       ],
       "name": "dare",
@@ -237,7 +235,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "args": {},
               "kind": "http",
               "method": "GET",
               "orig": "/api/game/dare",
@@ -252,16 +249,18 @@ class Config {
                   "lit": "dare"
                 }
               ],
-              "select": {},
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
               "parts": [
                 "api",
                 "game",
                 "dare"
-              ]
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {},
+              "select": {}
             }
           ]
         }

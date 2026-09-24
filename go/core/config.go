@@ -97,24 +97,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"example": "coffee",
-											"kind": "query",
-											"name": "beverage",
-											"orig": "beverage",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": "milk",
-											"kind": "query",
-											"name": "ingredient",
-											"orig": "ingredient",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/beverage/mix",
@@ -129,21 +111,40 @@ func MakeConfig() map[string]any {
 										"lit": "mix",
 									},
 								},
+								"parts": []any{
+									"api",
+									"beverage",
+									"mix",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.result`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "beverage",
+											"orig": "beverage",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "coffee",
+										},
+										map[string]any{
+											"name": "ingredient",
+											"orig": "ingredient",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "milk",
+										},
+									},
+								},
 								"select": map[string]any{
 									"$action": "mix",
 									"exist": []any{
 										"beverage",
 										"ingredient",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.result`",
-								},
-								"parts": []any{
-									"api",
-									"beverage",
-									"mix",
 								},
 							},
 						},
@@ -157,27 +158,31 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "code",
+						"title": "Code",
+						"type": "`$INTEGER`",
 						"req": true,
 						"short": "HTTP status code",
-						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "creator",
+						"title": "Creator",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "API creator name",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "result",
+						"title": "Result",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The dare challenge text",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "status",
+						"title": "Status",
+						"type": "`$BOOLEAN`",
 						"req": true,
 						"short": "Indicates if the request was successful",
-						"type": "`$BOOLEAN`",
 					},
 				},
 				"name": "dare",
@@ -187,7 +192,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/game/dare",
@@ -202,16 +206,18 @@ func MakeConfig() map[string]any {
 										"lit": "dare",
 									},
 								},
-								"select": map[string]any{},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"api",
 									"game",
 									"dare",
 								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},

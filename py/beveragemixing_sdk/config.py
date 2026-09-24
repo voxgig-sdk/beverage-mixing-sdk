@@ -122,24 +122,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {
-                  "query": [
-                    {
-                      "example": "coffee",
-                      "kind": "query",
-                      "name": "beverage",
-                      "orig": "beverage",
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "example": "milk",
-                      "kind": "query",
-                      "name": "ingredient",
-                      "orig": "ingredient",
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/beverage/mix",
@@ -154,6 +136,34 @@ def make_config():
                     "lit": "mix",
                   },
                 ],
+                "parts": [
+                  "api",
+                  "beverage",
+                  "mix",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.result`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "beverage",
+                      "orig": "beverage",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "example": "coffee",
+                    },
+                    {
+                      "name": "ingredient",
+                      "orig": "ingredient",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "example": "milk",
+                    },
+                  ],
+                },
                 "select": {
                   "$action": "mix",
                   "exist": [
@@ -161,15 +171,6 @@ def make_config():
                     "ingredient",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.result`",
-                },
-                "parts": [
-                  "api",
-                  "beverage",
-                  "mix",
-                ],
               },
             ],
           },
@@ -182,27 +183,31 @@ def make_config():
         "fields": [
           {
             "name": "code",
+            "title": "Code",
+            "type": "`$INTEGER`",
             "req": True,
             "short": "HTTP status code",
-            "type": "`$INTEGER`",
           },
           {
             "name": "creator",
+            "title": "Creator",
+            "type": "`$STRING`",
             "req": True,
             "short": "API creator name",
-            "type": "`$STRING`",
           },
           {
             "name": "result",
+            "title": "Result",
+            "type": "`$STRING`",
             "req": True,
             "short": "The dare challenge text",
-            "type": "`$STRING`",
           },
           {
             "name": "status",
+            "title": "Status",
+            "type": "`$BOOLEAN`",
             "req": True,
             "short": "Indicates if the request was successful",
-            "type": "`$BOOLEAN`",
           },
         ],
         "name": "dare",
@@ -212,7 +217,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/game/dare",
@@ -227,16 +231,18 @@ def make_config():
                     "lit": "dare",
                   },
                 ],
-                "select": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "api",
                   "game",
                   "dare",
                 ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {},
+                "select": {},
               },
             ],
           },

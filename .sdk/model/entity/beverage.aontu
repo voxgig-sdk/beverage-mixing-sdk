@@ -1,0 +1,72 @@
+# Entity: beverage
+
+main: kit: entity: beverage: {
+
+  alias: field: {}
+
+  name: "beverage"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/beverage/mix"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "coffee"
+                k: "query"
+                n: "beverage"
+                or: "beverage"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "milk"
+                k: "query"
+                n: "ingredient"
+                or: "ingredient"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/beverage/mix"
+          q: {
+            "$action": "mix"
+            exist: [
+              "beverage"
+              "ingredient"
+            ]
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "beverage"
+            }
+            {
+              lit: "mix"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.result`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}

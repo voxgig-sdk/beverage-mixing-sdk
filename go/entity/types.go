@@ -1,7 +1,7 @@
 // Typed models for the BeverageMixing SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -24,10 +24,6 @@ type BeverageLoadMatch struct {
 
 // Dare is the typed data model for the dare entity.
 type Dare struct {
-	Code int `json:"code"`
-	Creator string `json:"creator"`
-	Result string `json:"result"`
-	Status bool `json:"status"`
 }
 
 // DareLoadMatch is the typed request payload for Dare.LoadTyped.
